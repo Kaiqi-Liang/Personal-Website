@@ -14,6 +14,9 @@ const useStyles = makeStyles({
     display: 'flex',
     justifyContent: 'space-between',
   },
+  title: {
+    fontWeight: 'bold',
+  }
 });
 
 const NavButton = styled(Button)({
@@ -24,7 +27,7 @@ export default () => {
   const classes = useStyles();
   const { pathname } = useLocation();
 
-  const color = (curr: string) => pathname === curr ? "secondary" : "inherit";
+  const variant = (currPath: string) => pathname === currPath ? "outlined" : "text";
 
   return (
     <AppBar position="static">
@@ -33,18 +36,18 @@ export default () => {
           component={Link}
           to="/"
           variant="h6"
-          style={{ fontWeight: 'bold'}}
+          className={classes.title}
         >
           Kaiqi Liang
         </Typography>
         <nav>
-          <NavButton color={color("/resume")}>
+          <NavButton color="inherit" variant={variant("/resume")}>
             <Link to='/resume'>RESUME</Link>
           </NavButton>
-          <NavButton color={color("/projects")}>
+          <NavButton color="inherit" variant={variant("/projects")}>
             <Link to='/projects'>PROJECTS</Link>
           </NavButton>
-          <NavButton color={color("/podcasts")}>
+          <NavButton color="inherit" variant={variant("/podcasts")}>
             <Link to='/podcasts'>PODCASTS</Link>
           </NavButton>
         </nav>

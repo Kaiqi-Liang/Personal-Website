@@ -1,26 +1,36 @@
 import React from 'react';
 import {
   makeStyles,
-  Link,
   Typography,
   Container,
+  Link,
 } from '@material-ui/core';
+import GitHubIcon from '@material-ui/icons/GitHub';
+import LinkedInIcon from '@material-ui/icons/LinkedIn';
 
 const useStyles = makeStyles((theme) => ({
   footer: {
-    padding: theme.spacing(3, 2),
+    padding: theme.spacing(2),
     marginTop: 'auto',
     maxHeight: '100px',
     backgroundColor:
       theme.palette.type === 'light' ? theme.palette.grey[200] : theme.palette.grey[800],
+  },
+  container: {
+    display: 'flex',
+    justifyContent: 'space-around',
+  },
+  icons: {
+    display: 'flex',
+    alignItems: 'center',
   },
 }));
 
 const Copyright = () => (
   <Typography variant="body2" color="textSecondary">
     {'Copyright © '}
-    <Link color="inherit" href="https://material-ui.com/">
-      Big Brain
+    <Link color="inherit" href="#">
+      Kaiqi Liang
     </Link>
   </Typography>
 );
@@ -36,11 +46,22 @@ export default () => {
 
   return (
     <footer className={classes.footer}>
-      <Container maxWidth="sm">
-        <Typography variant="body1">
-          <time>{time}</time>
-        </Typography>
-        <Copyright />
+      <Container maxWidth="sm" className={classes.container}>
+        <div>
+          <Typography variant="body1">
+            <time>{time}</time>
+          </Typography>
+          <Copyright />
+        </div>
+        <div className={classes.icons}>
+          <Link target="_blank" href="https://www.linkedin.com/in/kaiqiliang/">
+            <LinkedInIcon />
+          </Link>
+          {'\u00A0'}
+          <Link target="_blank" href="https://github.com/Kaiqi-Liang">
+            <GitHubIcon />
+          </Link>
+        </div>
       </Container>
     </footer>
   );

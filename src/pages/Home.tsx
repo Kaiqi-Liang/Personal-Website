@@ -1,6 +1,4 @@
-import { Link } from "react-router-dom";
-import { makeStyles, Button } from "@material-ui/core";
-import DashboardIcon from '@material-ui/icons/Dashboard';
+import { makeStyles } from "@material-ui/core";
 
 const useStyles = makeStyles({
   root: {
@@ -15,15 +13,6 @@ export default () => {
   const classes = useStyles();
   return (
     <main className={classes.root}>
-      <Button
-        component={Link}
-        to="/dashboard"
-        variant="contained"
-        color="primary"
-        startIcon={<DashboardIcon />}
-      >
-        Dashboard
-      </Button>
     </main>
   );
 };
