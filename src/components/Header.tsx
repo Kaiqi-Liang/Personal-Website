@@ -1,11 +1,12 @@
 import React from 'react';
-import { Link, useHistory, useLocation } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import {
   makeStyles,
   Button,
   Typography,
   AppBar,
   Toolbar,
+  styled,
 } from '@material-ui/core';
 
 const useStyles = makeStyles({
@@ -15,17 +16,15 @@ const useStyles = makeStyles({
   },
 });
 
+const NavButton = styled(Button)({
+  fontWeight: 'bold',
+});
+
 export default () => {
   const classes = useStyles();
-  const history = useHistory();
   const { pathname } = useLocation();
 
-  const logout = () => {
-    window.confirm('Are you sure you want to logout');
-  };
-
-  const login = () => {
-  }
+  const color = (curr: string) => pathname === curr ? "secondary" : "inherit";
 
   return (
     <AppBar position="static">
@@ -34,16 +33,21 @@ export default () => {
           component={Link}
           to="/"
           variant="h6"
+          style={{ fontWeight: 'bold'}}
         >
-          Big Brain
+          Kaiqi Liang
         </Typography>
-        <div>
-          {pathname === '/dashboard' &&
-            <Button variant="contained" onClick={login}>Login</Button>
-          }
-          {'\u00A0'}
-          <Button color="inherit" onClick={logout}>Logout</Button>
-        </div>
+        <nav>
+          <NavButton color={color("/resume")}>
+            <Link to='/resume'>RESUME</Link>
+          </NavButton>
+          <NavButton color={color("/projects")}>
+            <Link to='/projects'>PROJECTS</Link>
+          </NavButton>
+          <NavButton color={color("/podcasts")}>
+            <Link to='/podcasts'>PODCASTS</Link>
+          </NavButton>
+        </nav>
       </Toolbar>
     </AppBar>
   );
