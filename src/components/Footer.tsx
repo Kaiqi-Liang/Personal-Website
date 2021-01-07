@@ -4,6 +4,7 @@ import {
   Typography,
   Container,
   Link,
+  Tooltip,
 } from '@material-ui/core';
 import GitHubIcon from '@material-ui/icons/GitHub';
 import LinkedInIcon from '@material-ui/icons/LinkedIn';
@@ -54,13 +55,17 @@ export default () => {
           <Copyright />
         </div>
         <div className={classes.icons}>
-          <Link target="_blank" href="https://www.linkedin.com/in/kaiqiliang/">
-            <LinkedInIcon />
-          </Link>
+          <Tooltip title="LinkedIn" aria-label="LinkedIn">
+            <Link target="_blank" href="https://www.linkedin.com/in/kaiqiliang/">
+              <LinkedInIcon />
+            </Link>
+          </Tooltip>
           {'\u00A0'}
-          <Link target="_blank" href="https://github.com/Kaiqi-Liang">
-            <GitHubIcon />
-          </Link>
+          <Tooltip title="GitHub" aria-label="GitHub">
+            <Link target="_blank" href="https://github.com/Kaiqi-Liang">
+              <GitHubIcon />
+            </Link>
+          </Tooltip>
         </div>
       </Container>
     </footer>

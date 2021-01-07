@@ -8,7 +8,7 @@ import { orange, blue } from '@material-ui/core/colors';
 import Header from './components/Header';
 import Footer from './components/Footer';
 import Home from './pages/Home';
-import Dashboard from './pages/Dashboard';
+import Resume from './pages/Resume';
 
 function App() {
   const theme = React.useMemo(() => createMuiTheme({
@@ -29,7 +29,7 @@ function App() {
       <Particles options={particlesOptions as ISourceOptions} />
       <Header />
       <Switch>
-        <Route exact path="/dashboard" component={Dashboard} />
+        <Route exact path="/resume" component={Resume} />
         <Route path="/" component={Home} />
       </Switch>
       <Footer />
