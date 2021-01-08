@@ -14,6 +14,7 @@ import Footer from './components/Footer';
 import Home from './pages/Home';
 import Resume from './pages/Resume';
 import Projects from './pages/Projects';
+import Podcasts from './pages/Podcasts';
 
 const useStyles = makeStyles({
   root: {
@@ -54,6 +55,7 @@ function App() {
         <Switch>
           <Route exact path="/resume" component={Resume} />
           <Route exact path="/projects" component={Projects} />
+          <Route exact path="/podcasts" component={Podcasts} />
           <Route path="/" component={Home} />
         </Switch>
       </main>

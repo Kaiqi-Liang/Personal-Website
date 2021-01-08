@@ -61,7 +61,7 @@ export default ({
       return {
         background: {
           color: {
-            value: darkTheme ? "#fff" : "#000",
+            value: darkTheme ? "#cbeafb" : "#000",
           },
         },
         particles: {
