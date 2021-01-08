@@ -1,9 +1,10 @@
 import React from 'react';
+import { ISourceOptions } from 'react-tsparticles';
 import { Link, useLocation } from "react-router-dom";
-import { ISourceOptions } from "tsparticles";
+import NightsStayIcon from '@material-ui/icons/NightsStay';
+import WbSunnyIcon from '@material-ui/icons/WbSunny';
 import {
   makeStyles,
-  styled,
   Switch,
   Button,
   Typography,
@@ -15,14 +16,11 @@ const useStyles = makeStyles({
   nav: {
     display: 'flex',
     justifyContent: 'space-between',
+    alignItems: 'center',
   },
-  title: {
+  bold: {
     fontWeight: 'bold',
-  }
-});
-
-const NavButton = styled(Button)({
-  fontWeight: 'bold',
+  },
 });
 
 export default ({
@@ -32,7 +30,7 @@ export default ({
 }: {
   darkTheme: boolean,
   setDarkTheme: (darkTheme: boolean) => void,
-  setOptions: any,
+  setOptions: Function //(callback: (options: ISourceOptions) => void) => void,
 }) => {
   const classes = useStyles();
   const { pathname } = useLocation();
@@ -40,12 +38,19 @@ export default ({
   const variant = (currPath: string) => pathname === currPath ? "outlined" : "text";
   const toggle = () => {
     setDarkTheme(!darkTheme);
-    setOptions(({ background, ...options }: ISourceOptions) => {
+    setOptions(({ background, particles, ...options }: ISourceOptions) => {
+      var { color, ...props } = particles as { color: { value: string } }; // why doesn't particles have color
       return {
         background: {
           color: {
-            value: darkTheme ? "#282c34" : "#111"
+            value: darkTheme ? "#fff" : "#000",
           },
+        },
+        particles: {
+          color: {
+            value: darkTheme ? "#000" : "#fff",
+          },
+          ...props,
         },
         ...options,
       };
@@ -59,25 +64,26 @@ export default ({
           component={Link}
           to="/"
           variant="h6"
-          className={classes.title}
+          className={classes.bold}
         >
           Kaiqi Liang
         </Typography>
-        <nav>
-          <NavButton color="inherit" variant={variant("/resume")}>
+        <nav className={classes.nav}>
+          <Button className={classes.bold} variant={variant("/resume")}>
             <Link to='/resume'>RESUME</Link>
-          </NavButton>
-          <NavButton color="inherit" variant={variant("/projects")}>
+          </Button>
+          <Button className={classes.bold} variant={variant("/projects")}>
             <Link to='/projects'>PROJECTS</Link>
-          </NavButton>
-          <NavButton color="inherit" variant={variant("/podcasts")}>
+          </Button>
+          <Button className={classes.bold} variant={variant("/podcasts")}>
             <Link to='/podcasts'>PODCASTS</Link>
-          </NavButton>
+          </Button>
           <Switch
             checked={darkTheme}
             onChange={toggle}
             inputProps={{ 'aria-label': 'colour modes toggle' }}
           />
+          {darkTheme ? <NightsStayIcon /> : <WbSunnyIcon />}
         </nav>
       </Toolbar>
     </AppBar>

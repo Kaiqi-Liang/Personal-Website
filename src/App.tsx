@@ -2,7 +2,7 @@ import React from 'react';
 import Particles from "react-tsparticles";
 import { Switch, Route } from 'react-router-dom';
 import { createMuiTheme, ThemeProvider, CssBaseline } from '@material-ui/core';
-import { orange, blue } from '@material-ui/core/colors';
+import { grey, blue, green } from '@material-ui/core/colors';
 import initial from './presets/initial';
 import Header from './components/Header';
 import Footer from './components/Footer';
@@ -16,10 +16,10 @@ function App() {
   const theme = React.useMemo(() => createMuiTheme({
     palette: {
       primary: {
-        main: blue[300],
+        main: darkTheme? green[800] : blue[400],
       },
       secondary: {
-        main: orange[900],
+        main: grey[900],
       },
       type: darkTheme ? 'dark' : 'light',
     },

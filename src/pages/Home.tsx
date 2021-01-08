@@ -13,6 +13,7 @@ export default () => {
   const classes = useStyles();
   return (
     <main className={classes.root}>
+      <h1>Welcome to my website</h1>
     </main>
   );
 };
