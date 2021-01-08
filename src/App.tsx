@@ -1,15 +1,31 @@
 import React from 'react';
 import Particles from "react-tsparticles";
 import { Switch, Route } from 'react-router-dom';
-import { createMuiTheme, ThemeProvider, CssBaseline } from '@material-ui/core';
 import { grey, blue, green } from '@material-ui/core/colors';
+import {
+  createMuiTheme,
+  ThemeProvider,
+  CssBaseline,
+  makeStyles,
+} from '@material-ui/core';
 import initial from './presets/initial';
 import Header from './components/Header';
 import Footer from './components/Footer';
 import Home from './pages/Home';
 import Resume from './pages/Resume';
+import Projects from './pages/Projects';
+
+const useStyles = makeStyles({
+  root: {
+    flex: 1,
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+});
 
 function App() {
+  const classes = useStyles();
   const [darkTheme, setDarkTheme] = React.useState(window.matchMedia('(prefers-color-scheme: dark)').matches);
   const [options, setOptions] = React.useState(initial);
 
@@ -34,10 +50,13 @@ function App() {
         setDarkTheme={setDarkTheme}
         setOptions={setOptions}
       />
-      <Switch>
-        <Route exact path="/resume" component={Resume} />
-        <Route path="/" component={Home} />
-      </Switch>
+      <main className={classes.root}>
+        <Switch>
+          <Route exact path="/resume" component={Resume} />
+          <Route exact path="/projects" component={Projects} />
+          <Route path="/" component={Home} />
+        </Switch>
+      </main>
       <Footer />
     </ThemeProvider>
   );

@@ -39,7 +39,7 @@ export default ({
   const toggle = () => {
     setDarkTheme(!darkTheme);
     setOptions(({ background, particles, ...options }: ISourceOptions) => {
-      var { color, ...props } = particles as { color: { value: string } }; // why doesn't particles have color
+      const { color, ...props } = particles as { color: { value: string } }; // why doesn't particles have color
       return {
         background: {
           color: {
