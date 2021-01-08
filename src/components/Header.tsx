@@ -1,15 +1,25 @@
 import React from 'react';
 import { ISourceOptions } from 'react-tsparticles';
 import { Link, useLocation } from "react-router-dom";
-import NightsStayIcon from '@material-ui/icons/NightsStay';
-import WbSunnyIcon from '@material-ui/icons/WbSunny';
+import DarkMode from '@material-ui/icons/Brightness4';
+import LightMode from '@material-ui/icons/Brightness7';
+import Settings from '@material-ui/icons/Settings';
+import Autocomplete from '@material-ui/lab/Autocomplete';
 import {
   makeStyles,
-  Switch,
   Button,
   Typography,
   AppBar,
   Toolbar,
+  Dialog,
+  DialogTitle,
+  DialogContent,
+  DialogActions,
+  Switch,
+  List,
+  ListItem,
+  ListItemText,
+  TextField,
 } from '@material-ui/core';
 
 const useStyles = makeStyles({
@@ -20,6 +30,13 @@ const useStyles = makeStyles({
   },
   bold: {
     fontWeight: 'bold',
+  },
+  li: {
+    padding: 0,
+  },
+  select: {
+    marginLeft: 24,
+    width: 200,
   },
 });
 
@@ -34,6 +51,7 @@ export default ({
 }) => {
   const classes = useStyles();
   const { pathname } = useLocation();
+  const [dialog, setDialog] = React.useReducer((dialog) => !dialog, false);
 
   const variant = (currPath: string) => pathname === currPath ? "outlined" : "text";
   const toggle = () => {
@@ -78,13 +96,45 @@ export default ({
           <Button className={classes.bold} variant={variant("/podcasts")}>
             <Link to='/podcasts'>PODCASTS</Link>
           </Button>
-          <Switch
-            checked={darkTheme}
-            onChange={toggle}
-            inputProps={{ 'aria-label': 'colour modes toggle' }}
-          />
-          {darkTheme ? <NightsStayIcon /> : <WbSunnyIcon />}
+          <Button onClick={toggle}>
+            {darkTheme ? <LightMode /> : <DarkMode />}
+          </Button>
+          <Button onClick={setDialog}>
+            <Settings />
+          </Button>
         </nav>
+        <Dialog open={dialog} onClose={setDialog} aria-labelledby="settings-dialog">
+          <DialogTitle id="settings-dialog">Settings</DialogTitle>
+          <DialogContent>
+            <List>
+              <ListItem className={classes.li}>
+                <ListItemText>
+                  Dark Mode
+                </ListItemText>
+                <Switch
+                  checked={darkTheme}
+                  onChange={toggle}
+                  inputProps={{ 'aria-label': 'colour modes toggle' }}
+                />
+              </ListItem>
+              <ListItem className={classes.li}>
+                <ListItemText>
+                  Background
+                </ListItemText>
+                <Autocomplete
+                  className={classes.select}
+                  options={['a', 'b']}
+                  renderInput={(params) => <TextField {...params} label="Background Options" variant="outlined" />}
+                />
+              </ListItem>
+            </List>
+          </DialogContent>
+          <DialogActions>
+            <Button onClick={setDialog} color="primary" variant="contained">
+              Close
+            </Button>
+          </DialogActions>
+        </Dialog>
       </Toolbar>
     </AppBar>
   );
