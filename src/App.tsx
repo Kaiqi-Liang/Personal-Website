@@ -18,8 +18,9 @@ import Header from './components/Header';
 import Footer from './components/Footer';
 import Home from './pages/Home';
 import Resume from './pages/Resume';
-import Projects from './pages/Projects';
 import Podcasts from './pages/Podcasts';
+import Projects from './pages/Projects';
+import YouTube from './pages/YouTube';
 
 const useStyles = makeStyles({
   root: {
@@ -59,8 +60,9 @@ function App() {
       <main className={classes.root}>
         <Switch>
           <Route exact path="/resume" component={Resume} />
-          <Route exact path="/projects" component={Projects} />
           <Route exact path="/podcasts" component={Podcasts} />
+          <Route exact path="/projects" component={Projects} />
+          <Route exact path="/projects/YouTubeDistractionDisabler" component={YouTube} />
           <Route path="/" component={Home} />
         </Switch>
       </main>

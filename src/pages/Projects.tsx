@@ -18,6 +18,12 @@ const useStyles = makeStyles((theme: Theme) => ({
     paddingTop: theme.spacing(8),
     paddingBottom: theme.spacing(8),
   },
+  gridItem: {
+    [theme.breakpoints.up('md')]: {
+      maxWidth: 'unset',
+      flexBasis: '50%',
+    },
+  },
   card: {
     maxWidth: 345,
     display: 'flex',
@@ -51,7 +57,7 @@ const CardItem = ({ title, description, image, github, link, button }: Project) 
   const classes = useStyles();
   const history = useHistory();
   return (
-    <Grid key={title} item xs={12} sm={6} md={4} container justify="center">
+    <Grid className={classes.gridItem} item xs={12} sm={6} md={4} container justify="center">
       <Card className={classes.card}>
         <CardActionArea
           className={classes.cardActionArea}
@@ -94,7 +100,7 @@ export default () => {
       <Grid container spacing={4}>
         <CardItem
           title="YouTube Distraction Disabler"
-          description="Remove distracting video suggestions on YouTube."
+          description="A productivity Google Chrome extension which removes distracting video suggestions on YouTube."
           image={youtube}
           github="https://github.com/Kaiqi-Liang/YouTube-Distraction-Disabler"
           link="https://chrome.google.com/webstore/detail/youtube-distraction-disab/klhmhijgenkomhcobnbdnjkkefbghfab?hl=en-GB"
@@ -102,7 +108,7 @@ export default () => {
         />
         <CardItem
           title="Personal Website"
-          description="The website you are looking at right now!"
+          description="The website you are looking at right now. Enjoy browsing!"
           image={youtube}
           github="https://github.com/Kaiqi-Liang/Personal-Website"
           link="/"
