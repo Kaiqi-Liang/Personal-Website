@@ -1,6 +1,6 @@
 import React from 'react';
 import { ISourceOptions } from 'react-tsparticles';
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation } from 'react-router-dom';
 import Autocomplete from '@material-ui/lab/Autocomplete';
 import DarkMode from '@material-ui/icons/Brightness4';
 import LightMode from '@material-ui/icons/Brightness7';
@@ -24,7 +24,7 @@ import {
   SwipeableDrawer,
   Divider,
 } from '@material-ui/core';
-import { makeStyles, Theme } from "@material-ui/core/styles";
+import { makeStyles, Theme } from '@material-ui/core/styles';
 
 const useStyles = makeStyles((theme: Theme) => ({
   flex: {
@@ -98,10 +98,18 @@ const Icons = ({
 }) => {
   return (
     <>
-      <IconButton edge={edge && "end"} onClick={toggle}>
+      <IconButton
+        edge={edge && "end"}
+        onClick={toggle}
+        aria-label="toggle scheme"
+      >
         {darkTheme ? <LightMode /> : <DarkMode />}
       </IconButton>
-      <IconButton edge={edge && "end"} onClick={setDialog}>
+      <IconButton
+        edge={edge && "end"}
+        onClick={setDialog}
+        aria-label="settings"
+      >
         <Settings />
       </IconButton>
     </>

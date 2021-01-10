@@ -1,5 +1,5 @@
 import React from 'react';
-import Particles from "react-tsparticles";
+import Particles from 'react-tsparticles';
 import { ISourceOptions } from 'react-tsparticles';
 import { Switch, Route } from 'react-router-dom';
 import CssBaseline from '@material-ui/core/CssBaseline';

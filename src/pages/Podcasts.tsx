@@ -1,14 +1,14 @@
-import { makeStyles, Theme } from "@material-ui/core/styles";
+import { makeStyles, Theme } from '@material-ui/core/styles';
 import {
   Container,
   Grid,
   Card,
+  CardMedia,
   CardContent,
   CardActions,
-  CardMedia,
   Typography,
   Button,
-} from "@material-ui/core";
+} from '@material-ui/core';
 import lecturersImage from '../assets/images/lecturers.jpg';
 import thesisImage from '../assets/images/thesis.jpg';
 import appianImage from '../assets/images/appian.png';
@@ -28,7 +28,6 @@ const useStyles = makeStyles((theme: Theme) => ({
   },
   cardMedia: {
     paddingTop: '56.25%', // 16:9
-    width: '100%',
   },
   cardContent: {
     flexGrow: 1,
@@ -73,7 +72,7 @@ const podcasts: Podcast[] = [
   {
     title: 'Yappin with Appian w/ Kevin Huang & Miaad Hussain',
     date: '21 APRIL 2020',
-    description: "This episode, join Kaiqi and Ryan as they head into Appian's Sydney  office to have a chat about Appian with Solution Engineer Kevin Huang and Principal Consultant Miaad Hussain and other UNSW graduates! They'll be talking about how they got into Appian, what exactly it is that Appian does, the culture, the benefits, and what the recruitment process is!",
+    description: "In this week's episode, join Kaiqi and Ryan as they head into Appian's Sydney office to have a chat about Appian with Solution Engineer Kevin Huang and Principal Consultant Miaad Hussain and other UNSW graduates! They'll be talking about how they got into Appian, what exactly it is that Appian does, the culture, the benefits, and what the recruitment process is!",
     image: appianImage,
     audio: appianAudio,
     apple: 'https://podcasts.apple.com/au/podcast/echo/id1455157876?i=1000472257209',
@@ -83,7 +82,6 @@ const podcasts: Podcast[] = [
 
 export default () => {
   const classes = useStyles();
-
   return (
     <Container className={classes.cardGrid} maxWidth="md">
       <Grid container spacing={4}>
