@@ -1,13 +1,18 @@
 import React from 'react';
 import Particles from "react-tsparticles";
+import { ISourceOptions } from 'react-tsparticles';
 import { Switch, Route } from 'react-router-dom';
-import { grey, blue, green } from '@material-ui/core/colors';
+import CssBaseline from '@material-ui/core/CssBaseline';
+import {
+  grey,
+  blue,
+  green,
+} from '@material-ui/core/colors';
 import {
   createMuiTheme,
   ThemeProvider,
-  CssBaseline,
   makeStyles,
-} from '@material-ui/core';
+} from '@material-ui/core/styles';
 import initial from './presets/initial';
 import Header from './components/Header';
 import Footer from './components/Footer';
@@ -28,7 +33,7 @@ const useStyles = makeStyles({
 function App() {
   const classes = useStyles();
   const [darkTheme, setDarkTheme] = React.useState(window.matchMedia('(prefers-color-scheme: dark)').matches);
-  const [options, setOptions] = React.useState(initial);
+  const [options, setOptions] = React.useState(initial as ISourceOptions);
 
   const theme = React.useMemo(() => createMuiTheme({
     palette: {

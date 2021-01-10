@@ -1,13 +1,14 @@
 import React from 'react';
 import { ISourceOptions } from 'react-tsparticles';
 import { Link, useLocation } from "react-router-dom";
+import Autocomplete from '@material-ui/lab/Autocomplete';
 import DarkMode from '@material-ui/icons/Brightness4';
 import LightMode from '@material-ui/icons/Brightness7';
 import Settings from '@material-ui/icons/Settings';
-import Autocomplete from '@material-ui/lab/Autocomplete';
+import MenuIcon from '@material-ui/icons/Menu';
 import {
-  makeStyles,
   Button,
+  IconButton,
   Typography,
   AppBar,
   Toolbar,
@@ -20,10 +21,13 @@ import {
   ListItem,
   ListItemText,
   TextField,
+  SwipeableDrawer,
+  Divider,
 } from '@material-ui/core';
+import { makeStyles, Theme } from "@material-ui/core/styles";
 
-const useStyles = makeStyles({
-  nav: {
+const useStyles = makeStyles((theme: Theme) => ({
+  flex: {
     display: 'flex',
     justifyContent: 'space-between',
     alignItems: 'center',
@@ -31,14 +35,78 @@ const useStyles = makeStyles({
   bold: {
     fontWeight: 'bold',
   },
-  li: {
+  ul: {
+    display: 'flex',
     padding: 0,
+  },
+  li: {
+    paddingLeft: 0,
+    paddingRight: 0,
   },
   select: {
     marginLeft: 24,
     width: 200,
   },
-});
+  nav: {
+    [theme.breakpoints.down('xs')]: {
+      display: 'none',
+    },
+  },
+  menu: {
+    [theme.breakpoints.up('sm')]: {
+      display: 'none',
+    },
+  },
+}));
+
+const Nav = ({ flex }: { flex: boolean }) => {
+  const classes = useStyles();
+  const { pathname } = useLocation();
+  const variant = (currPath: string) => pathname === currPath ? "outlined" : "text";
+
+  return (
+    <List className={flex ? classes.ul : ''}>
+      <ListItem className={flex ? classes.li : ''}>
+        <Button className={classes.bold} variant={variant("/resume")}>
+          <Link to='/resume'>RESUME</Link>
+        </Button>
+      </ListItem>
+      <ListItem className={flex ? classes.li : ''}>
+        <Button className={classes.bold} variant={variant("/projects")}>
+          <Link to='/projects'>PROJECTS</Link>
+        </Button>
+      </ListItem>
+      <ListItem className={flex ? classes.li : ''}>
+        <Button className={classes.bold} variant={variant("/podcasts")}>
+          <Link to='/podcasts'>PODCASTS</Link>
+        </Button>
+      </ListItem>
+    </List>
+  );
+};
+
+const Icons = ({
+  edge,
+  darkTheme,
+  toggle,
+  setDialog,
+}: {
+  edge: boolean,
+  darkTheme: boolean,
+  toggle: () => void,
+  setDialog: React.DispatchWithoutAction,
+}) => {
+  return (
+    <>
+      <IconButton edge={edge && "end"} onClick={toggle}>
+        {darkTheme ? <LightMode /> : <DarkMode />}
+      </IconButton>
+      <IconButton edge={edge && "end"} onClick={setDialog}>
+        <Settings />
+      </IconButton>
+    </>
+  );
+};
 
 export default ({
   darkTheme,
@@ -46,14 +114,13 @@ export default ({
   setOptions,
 }: {
   darkTheme: boolean,
-  setDarkTheme: (darkTheme: boolean) => void,
-  setOptions: Function //(callback: (options: ISourceOptions) => void) => void,
+  setDarkTheme: React.Dispatch<React.SetStateAction<boolean>>,
+  setOptions: React.Dispatch<React.SetStateAction<ISourceOptions>>,
 }) => {
   const classes = useStyles();
-  const { pathname } = useLocation();
   const [dialog, setDialog] = React.useReducer((dialog) => !dialog, false);
+  const [drawer, setDrawer] = React.useReducer((drawer) => !drawer, false);
 
-  const variant = (currPath: string) => pathname === currPath ? "outlined" : "text";
   const toggle = () => {
     setDarkTheme(!darkTheme);
     setOptions(({ background, particles, ...options }: ISourceOptions) => {
@@ -77,7 +144,7 @@ export default ({
 
   return (
     <AppBar position="static">
-      <Toolbar className={classes.nav}>
+      <Toolbar className={classes.flex}>
         <Typography
           component={Link}
           to="/"
@@ -86,23 +153,23 @@ export default ({
         >
           Kaiqi Liang
         </Typography>
-        <nav className={classes.nav}>
-          <Button className={classes.bold} variant={variant("/resume")}>
-            <Link to='/resume'>RESUME</Link>
-          </Button>
-          <Button className={classes.bold} variant={variant("/projects")}>
-            <Link to='/projects'>PROJECTS</Link>
-          </Button>
-          <Button className={classes.bold} variant={variant("/podcasts")}>
-            <Link to='/podcasts'>PODCASTS</Link>
-          </Button>
-          <Button onClick={toggle}>
-            {darkTheme ? <LightMode /> : <DarkMode />}
-          </Button>
-          <Button onClick={setDialog}>
-            <Settings />
-          </Button>
+        <nav className={`${classes.flex} ${classes.nav}`}>
+          <Nav flex={true}/>
+          <Icons
+            edge={true}
+            darkTheme={darkTheme}
+            toggle={toggle}
+            setDialog={setDialog}
+          />
         </nav>
+        <IconButton
+          onClick={setDrawer}
+          edge="end"
+          className={classes.menu}
+          aria-label="toggle drawer"
+        >
+          <MenuIcon />
+        </IconButton>
         <Dialog open={dialog} onClose={setDialog} aria-labelledby="settings-dialog">
           <DialogTitle id="settings-dialog">Settings</DialogTitle>
           <DialogContent>
@@ -135,6 +202,21 @@ export default ({
             </Button>
           </DialogActions>
         </Dialog>
+        <SwipeableDrawer
+          anchor="right"
+          open={drawer}
+          onClose={setDrawer}
+          onOpen={setDrawer}
+        >
+          <Nav flex={false}/>
+          <Divider />
+          <Icons
+            edge={false}
+            darkTheme={darkTheme}
+            toggle={toggle}
+            setDialog={setDialog}
+          />
+        </SwipeableDrawer>
       </Toolbar>
     </AppBar>
   );

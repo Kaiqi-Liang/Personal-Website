@@ -1,15 +1,15 @@
 import React from 'react';
+import { makeStyles, Theme } from "@material-ui/core/styles";
+import GitHubIcon from '@material-ui/icons/GitHub';
+import LinkedInIcon from '@material-ui/icons/LinkedIn';
 import {
-  makeStyles,
   Typography,
   Container,
   Link,
   Tooltip,
 } from '@material-ui/core';
-import GitHubIcon from '@material-ui/icons/GitHub';
-import LinkedInIcon from '@material-ui/icons/LinkedIn';
 
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles((theme: Theme) => ({
   footer: {
     padding: theme.spacing(2),
     marginTop: 'auto',
