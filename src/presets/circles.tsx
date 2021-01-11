@@ -3,7 +3,7 @@ export default {
   name: 'circles',
   fpsLimit: 60,
   background: {
-    color: '#fff',
+    color: '#000',
   },
   backgroundMode: {
     enable: true,

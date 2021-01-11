@@ -25,8 +25,10 @@ import snow from './presets/snow';
 import fire from './presets/fire';
 import bubbles from './presets/bubbles';
 import links from './presets/links';
+import molecules from './presets/molecules';
 import circles from './presets/circles';
 import spring from './presets/spring';
+import gumballs from './presets/gumballs';
 
 const useStyles = makeStyles({
   root: {
@@ -40,15 +42,17 @@ const useStyles = makeStyles({
 function App() {
   const classes = useStyles();
   const [darkTheme, setDarkTheme] = React.useState(window.matchMedia('(prefers-color-scheme: dark)').matches);
-  const [options, setOptions] = React.useState(stars as Options);
+  const [options, setOptions] = React.useState(links as Options);
   const backgrounds: Options[] = [
     stars as Options,
     snow as Options,
     fire as Options,
     bubbles as Options,
     links as Options,
+    molecules as Options,
     circles as Options,
     spring as Options,
+    gumballs as Options,
   ];
 
   const theme = React.useMemo(() => createMuiTheme({

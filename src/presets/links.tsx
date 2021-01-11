@@ -3,52 +3,90 @@ export default {
   name: 'links',
   fpsLimit: 60,
   background: {
-    color: {
-      value: '#000',
-    },
+    color: '#000',
   },
   particles: {
-    color: {
-      value: '#fff',
-    },
-    links: {
-      color: '#fff',
-      distance: 150,
-      enable: true,
-      opacity: 0.5,
-      width: 1,
-    },
-    collisions: {
-      enable: true,
-    },
-    move: {
-      direction: MoveDirection.none,
-      enable: true,
-      outMode: OutMode.bounce,
-      random: false,
-      speed: 6,
-      straight: false
-    },
     number: {
+      value: 160,
       density: {
         enable: true,
         value_area: 800,
       },
-      value: 80,
     },
-    opacity: {
-      value: 0.5,
+    color: {
+      value: '#ff0000',
+      animation: {
+        enable: true,
+        speed: 20,
+        sync: true,
+      },
     },
     shape: {
       type: ShapeType.circle,
+      stroke: {
+        width: 0,
+      },
+      polygon: {
+        nb_sides: 5,
+      },
+    },
+    opacity: {
+      value: 0.5,
+      random: false,
+      anim: {
+        enable: false,
+        speed: 3,
+        opacity_min: 0.1,
+        sync: false,
+      },
     },
     size: {
+      value: 3,
       random: true,
-      value: 5,
+      anim: {
+        enable: false,
+        speed: 20,
+        size_min: 0.1,
+        sync: false,
+      },
+    },
+    links: {
+      color: '#fff',
+      distance: 100,
+      enable: true,
+      opacity: 0.4,
+      width: 1,
+    },
+    move: {
+      enable: true,
+      speed: 6,
+      direction: MoveDirection.none,
+      random: false,
+      straight: false,
+      out_mode: OutMode.out,
+      attract: {
+        enable: false,
+        rotateX: 600,
+        rotateY: 1200,
+      },
+    },
+    life: {
+      duration: {
+        sync: false,
+        value: 3,
+      },
+      count: 0,
+      delay: {
+        random: {
+          enable: true,
+          minimumValue: 0.5,
+        },
+        value: 1
+      },
     },
   },
   interactivity: {
-    detectsOn: InteractivityDetect.window,
+    detect_on: InteractivityDetect.window,
     events: {
       onClick: {
         enable: true,
@@ -61,20 +99,28 @@ export default {
       resize: true,
     },
     modes: {
+      grab: {
+        distance: 400,
+        line_linked: {
+          opacity: 1,
+        },
+      },
       bubble: {
         distance: 400,
+        size: 40,
         duration: 2,
         opacity: 0.8,
-        size: 40,
-      },
-      push: {
-        quantity: 4,
       },
       repulse: {
         distance: 200,
-        duration: 0.4,
+      },
+      push: {
+        particles_nb: 4,
+      },
+      remove: {
+        particles_nb: 2,
       },
     },
   },
-  detectRetina: true,
+  retina_detect: true,
 };
