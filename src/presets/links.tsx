@@ -1,4 +1,5 @@
 import { InteractivityDetect, ClickMode, HoverMode, OutMode, MoveDirection, ShapeType } from 'tsparticles';
+
 export default {
   name: 'links',
   background: {

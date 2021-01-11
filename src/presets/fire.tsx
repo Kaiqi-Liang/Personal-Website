@@ -1,4 +1,5 @@
 import { ClickMode } from 'tsparticles';
+
 export default {
   name: 'fire',
   background: {

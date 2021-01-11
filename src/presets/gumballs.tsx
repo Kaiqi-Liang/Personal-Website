@@ -1,4 +1,5 @@
 import { InteractivityDetect, MoveDirection, OutMode, ShapeType } from 'tsparticles';
+
 export default {
   name: 'gumballs',
   background: {

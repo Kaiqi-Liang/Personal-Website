@@ -1,4 +1,5 @@
 import { InteractivityDetect, HoverMode, OutMode, MoveDirection, ShapeType, StartValueType, DestroyType } from 'tsparticles';
+
 export default {
   name: 'spring',
   colorChange: true,

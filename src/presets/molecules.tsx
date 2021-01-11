@@ -1,4 +1,5 @@
 import { InteractivityDetect, ShapeType } from 'tsparticles';
+
 export default {
   name: 'molecules',
   colorChange: true,

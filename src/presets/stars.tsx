@@ -1,4 +1,5 @@
 import { MoveDirection, OutMode, ShapeType } from 'tsparticles';
+
 export default {
   name: 'stars',
   colorChange: true,

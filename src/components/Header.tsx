@@ -156,7 +156,7 @@ export default ({
       if (newOptions.colorChange) particles.color.value = darkTheme ? "#000" : "#fff";
       return newOptions;
     });
-  }
+  };
 
   return (
     <AppBar position="static">

@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactPlayer from 'react-player';
 import { makeStyles, Theme } from '@material-ui/core/styles';
-import { Container } from '@material-ui/core';
+import Container from '@material-ui/core/Container';
 import Skeleton from '@material-ui/lab/Skeleton';
 import logo from '../assets/images/logo.png';
 
