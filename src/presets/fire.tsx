@@ -1,7 +1,6 @@
 import { ClickMode } from 'tsparticles';
 export default {
   name: 'fire',
-  fpsLimit: 40,
   background: {
     color: '#000',
   },
@@ -40,4 +39,5 @@ export default {
       resize: true,
     },
   },
+  fpsLimit: 40,
 };

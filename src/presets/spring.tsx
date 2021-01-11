@@ -1,7 +1,7 @@
 import { InteractivityDetect, HoverMode, OutMode, MoveDirection, ShapeType, StartValueType, DestroyType } from 'tsparticles';
 export default {
   name: 'spring',
-  fpsLimit: 60,
+  colorChange: true,
   background: {
     color: '#000',
   },
@@ -84,5 +84,6 @@ export default {
       },
     },
   },
+  fpsLimit: 60,
   detectRetina: true,
 };

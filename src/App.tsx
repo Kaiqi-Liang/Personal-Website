@@ -21,14 +21,14 @@ import Projects from './pages/Projects';
 import YouTube from './pages/YouTube';
 import Options from './Options';
 import stars from './presets/stars';
-import snow from './presets/snow';
 import fire from './presets/fire';
+import snow from './presets/snow';
+import molecules from './presets/molecules';
 import bubbles from './presets/bubbles';
 import links from './presets/links';
-import molecules from './presets/molecules';
 import circles from './presets/circles';
-import spring from './presets/spring';
 import gumballs from './presets/gumballs';
+import spring from './presets/spring';
 
 const useStyles = makeStyles({
   root: {
@@ -45,14 +45,14 @@ function App() {
   const [options, setOptions] = React.useState(links as Options);
   const backgrounds: Options[] = [
     stars as Options,
-    snow as Options,
     fire as Options,
+    snow as Options,
+    molecules as Options,
     bubbles as Options,
     links as Options,
-    molecules as Options,
     circles as Options,
-    spring as Options,
     gumballs as Options,
+    spring as Options,
   ];
 
   const theme = React.useMemo(() => createMuiTheme({

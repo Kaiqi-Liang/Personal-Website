@@ -1,6 +1,7 @@
 import { MoveDirection, ShapeType } from "tsparticles";
 export default {
   name: 'snow',
+  colorChange: true,
   background: {
     color: '#000',
   },

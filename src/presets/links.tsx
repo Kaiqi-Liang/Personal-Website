@@ -1,24 +1,30 @@
 import { InteractivityDetect, ClickMode, HoverMode, OutMode, MoveDirection, ShapeType } from 'tsparticles';
 export default {
   name: 'links',
-  fpsLimit: 60,
   background: {
     color: '#000',
   },
   particles: {
-    number: {
-      value: 160,
-      density: {
-        enable: true,
-        value_area: 800,
-      },
-    },
     color: {
       value: '#ff0000',
       animation: {
         enable: true,
         speed: 20,
         sync: true,
+      },
+    },
+    links: {
+      color: '#fff',
+      distance: 100,
+      enable: true,
+      opacity: 0.4,
+      width: 1,
+    },
+    number: {
+      value: 160,
+      density: {
+        enable: true,
+        value_area: 800,
       },
     },
     shape: {
@@ -49,13 +55,6 @@ export default {
         size_min: 0.1,
         sync: false,
       },
-    },
-    links: {
-      color: '#fff',
-      distance: 100,
-      enable: true,
-      opacity: 0.4,
-      width: 1,
     },
     move: {
       enable: true,
@@ -122,5 +121,6 @@ export default {
       },
     },
   },
+  fpsLimit: 60,
   retina_detect: true,
 };

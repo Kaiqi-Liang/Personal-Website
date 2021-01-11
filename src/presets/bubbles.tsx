@@ -1,7 +1,7 @@
 import { InteractivityDetect, ClickMode, HoverMode, OutMode, MoveDirection, ShapeType } from 'tsparticles';
 export default {
   name: 'bubbles',
-  fpsLimit: 60,
+  colorChange: true,
   background: {
     color: {
       value: '#000',
@@ -69,5 +69,6 @@ export default {
       },
     },
   },
+  fpsLimit: 60,
   detectRetina: true,
 };

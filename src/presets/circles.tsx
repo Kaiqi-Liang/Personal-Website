@@ -1,7 +1,6 @@
 import { InteractivityDetect, MoveDirection, OutMode, ShapeType } from 'tsparticles';
 export default {
   name: 'circles',
-  fpsLimit: 60,
   background: {
     color: '#000',
   },
@@ -41,6 +40,7 @@ export default {
       resize: true,
     },
   },
+  fpsLimit: 60,
   detectRetina: true,
   emitters: {
     direction: MoveDirection.top,

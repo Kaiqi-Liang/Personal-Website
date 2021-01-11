@@ -148,47 +148,12 @@ export default ({
   };
 
   const changeBackground = (darkTheme: boolean) => {
-    setOptions(({ name, background, particles, ...options }: Options) => {
-      const { color: particlesColor, links, ...particlesProps } = particles as Particles; // TODO: why doesn't particles have color and links
-      const newOptions: Options = {
-        background: {
-          color: {
-            value: darkTheme ? "#cbeafb" : "#000",
-          },
-        },
-        name,
-        particles,
-        ...options,
-      };
-
-      switch (name) {
-        case 'spring':
-        case 'stars':
-        case 'snow':
-        case 'bubbles':
-          newOptions.particles = {
-            color: {
-              value: darkTheme ? "#000" : "#fff",
-            },
-            ...particlesProps,
-          }
-          break;
-        case 'links':
-          const { color: linksColor, ...linksProps } = links;
-          newOptions.particles = {
-            color: {
-              value: darkTheme ? "#000" : "#fff",
-            },
-            links: {
-              color: darkTheme ? "#000" : "#fff",
-              ...linksProps,
-            },
-            ...particlesProps,
-          }
-          break;
-        default:
-          break;
-      }
+    setOptions((options: Options) => {
+      const newOptions: Options = JSON.parse(JSON.stringify(options));
+      (newOptions.background as { color: string }).color = darkTheme ? "#cbeafb" : "#000";
+      const particles = newOptions.particles as Particles;
+      if (particles.links) particles.links.color = darkTheme ? "#000" : "#fff";
+      if (newOptions.colorChange) particles.color.value = darkTheme ? "#000" : "#fff";
       return newOptions;
     });
   }

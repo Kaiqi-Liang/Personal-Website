@@ -1,7 +1,6 @@
 import { InteractivityDetect, MoveDirection, OutMode, ShapeType } from 'tsparticles';
 export default {
   name: 'gumballs',
-  fpsLimit: 60,
   background: {
     color: '#000',
   },
@@ -83,5 +82,6 @@ export default {
       height: 0,
     },
   },
+  fpsLimit: 60,
   detectRetina: true,
 };

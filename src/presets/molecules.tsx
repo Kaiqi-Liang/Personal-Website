@@ -1,7 +1,7 @@
 import { InteractivityDetect, ShapeType } from 'tsparticles';
 export default {
   name: 'molecules',
-  fpsLimit: 60,
+  colorChange: true,
   background: {
     color: '#000',
   },
@@ -19,22 +19,22 @@ export default {
     number: {
       value: 100,
     },
-    move: {
-      enable: true,
+    shape: {
+      type: ShapeType.circle,
     },
     opacity: {
       value: 1,
       random: true,
     },
-    shape: {
-      type: ShapeType.circle,
+    size: {
+      value: 10,
+    },
+    move: {
+      enable: true,
     },
     stroke: {
       color: '#000',
       width: 3,
-    },
-    size: {
-      value: 10,
     },
   },
   interactivity: {
@@ -43,5 +43,6 @@ export default {
       resize: true,
     },
   },
+  fpsLimit: 60,
   retina_detect: true,
 };
