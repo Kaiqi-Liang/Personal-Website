@@ -1,11 +1,11 @@
 import React from 'react';
-import { ISourceOptions } from 'react-tsparticles';
 import { Link, useLocation } from 'react-router-dom';
 import Autocomplete from '@material-ui/lab/Autocomplete';
 import DarkMode from '@material-ui/icons/Brightness4';
 import LightMode from '@material-ui/icons/Brightness7';
 import Settings from '@material-ui/icons/Settings';
 import MenuIcon from '@material-ui/icons/Menu';
+import { makeStyles, Theme } from '@material-ui/core/styles';
 import {
   Button,
   IconButton,
@@ -24,7 +24,7 @@ import {
   SwipeableDrawer,
   Divider,
 } from '@material-ui/core';
-import { makeStyles, Theme } from '@material-ui/core/styles';
+import Options from '../Options';
 
 const useStyles = makeStyles((theme: Theme) => ({
   flex: {
@@ -88,20 +88,20 @@ const Nav = ({ flex }: { flex: boolean }) => {
 const Icons = ({
   edge,
   darkTheme,
-  toggle,
+  changeTheme,
   setDialog,
 }: {
   edge: boolean,
   darkTheme: boolean,
-  toggle: () => void,
+  changeTheme: () => void,
   setDialog: React.DispatchWithoutAction,
 }) => {
   return (
     <>
       <IconButton
         edge={edge && "end"}
-        onClick={toggle}
-        aria-label="toggle scheme"
+        onClick={changeTheme}
+        aria-label="change theme"
       >
         {darkTheme ? <LightMode /> : <DarkMode />}
       </IconButton>
@@ -116,39 +116,82 @@ const Icons = ({
   );
 };
 
+interface Particles {
+  color: {
+    value: string,
+  },
+  links: {
+    color: string,
+  },
+}
+
 export default ({
   darkTheme,
   setDarkTheme,
+  options,
   setOptions,
+  backgrounds,
 }: {
   darkTheme: boolean,
   setDarkTheme: React.Dispatch<React.SetStateAction<boolean>>,
-  setOptions: React.Dispatch<React.SetStateAction<ISourceOptions>>,
+  options: Options,
+  setOptions: React.Dispatch<React.SetStateAction<Options>>,
+  backgrounds: Options[],
 }) => {
   const classes = useStyles();
   const [dialog, setDialog] = React.useReducer((dialog) => !dialog, false);
   const [drawer, setDrawer] = React.useReducer((drawer) => !drawer, false);
 
-  const toggle = () => {
+  const changeTheme = () => {
     setDarkTheme(!darkTheme);
-    setOptions(({ background, particles, ...options }: ISourceOptions) => {
-      const { color, ...props } = particles as { color: { value: string } }; // why doesn't particles have color
-      return {
+    changeBackground(darkTheme);
+  };
+
+  const changeBackground = (darkTheme: boolean) => {
+    setOptions(({ name, background, particles, ...options }: Options) => {
+      const { color: particlesColor, links, ...particlesProps } = particles as Particles; // TODO: why doesn't particles have color and links
+      const newOptions: Options = {
         background: {
           color: {
             value: darkTheme ? "#cbeafb" : "#000",
           },
         },
-        particles: {
-          color: {
-            value: darkTheme ? "#000" : "#fff",
-          },
-          ...props,
-        },
+        name,
+        particles,
         ...options,
       };
+
+      switch (name) {
+        case 'spring':
+        case 'stars':
+        case 'snow':
+        case 'bubbles':
+          newOptions.particles = {
+            color: {
+              value: darkTheme ? "#000" : "#fff",
+            },
+            ...particlesProps,
+          }
+          break;
+        case 'links':
+          const { color: linksColor, ...linksProps } = links;
+          newOptions.particles = {
+            color: {
+              value: darkTheme ? "#000" : "#fff",
+            },
+            links: {
+              color: darkTheme ? "#000" : "#fff",
+              ...linksProps,
+            },
+            ...particlesProps,
+          }
+          break;
+        default:
+          break;
+      }
+      return newOptions;
     });
-  };
+  }
 
   return (
     <AppBar position="static">
@@ -166,7 +209,7 @@ export default ({
           <Icons
             edge={true}
             darkTheme={darkTheme}
-            toggle={toggle}
+            changeTheme={changeTheme}
             setDialog={setDialog}
           />
         </nav>
@@ -188,8 +231,8 @@ export default ({
                 </ListItemText>
                 <Switch
                   checked={darkTheme}
-                  onChange={toggle}
-                  inputProps={{ 'aria-label': 'colour modes toggle' }}
+                  onChange={changeTheme}
+                  inputProps={{ 'aria-label': 'change theme' }}
                 />
               </ListItem>
               <ListItem className={classes.li}>
@@ -198,8 +241,15 @@ export default ({
                 </ListItemText>
                 <Autocomplete
                   className={classes.select}
-                  options={['a', 'b']}
+                  options={backgrounds.map((background) => background.name)}
                   renderInput={(params) => <TextField {...params} label="Background Options" variant="outlined" />}
+                  value={options.name}
+                  onChange={(_, value) => {
+                    if (value) {
+                      setOptions(backgrounds.find((background) => background.name === value) as Options);
+                      changeBackground(!darkTheme); // TODO: this is a hack for react state not being updated until the next rendering
+                    }
+                  }}
                 />
               </ListItem>
             </List>
@@ -221,7 +271,7 @@ export default ({
           <Icons
             edge={false}
             darkTheme={darkTheme}
-            toggle={toggle}
+            changeTheme={changeTheme}
             setDialog={setDialog}
           />
         </SwipeableDrawer>

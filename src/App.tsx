@@ -1,6 +1,5 @@
 import React from 'react';
 import Particles from 'react-tsparticles';
-import { ISourceOptions } from 'react-tsparticles';
 import { Switch, Route } from 'react-router-dom';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import {
@@ -13,7 +12,6 @@ import {
   ThemeProvider,
   makeStyles,
 } from '@material-ui/core/styles';
-import initial from './presets/initial';
 import Header from './components/Header';
 import Footer from './components/Footer';
 import Home from './pages/Home';
@@ -21,6 +19,14 @@ import Resume from './pages/Resume';
 import Podcasts from './pages/Podcasts';
 import Projects from './pages/Projects';
 import YouTube from './pages/YouTube';
+import Options from './Options';
+import stars from './presets/stars';
+import snow from './presets/snow';
+import fire from './presets/fire';
+import bubbles from './presets/bubbles';
+import links from './presets/links';
+import circles from './presets/circles';
+import spring from './presets/spring';
 
 const useStyles = makeStyles({
   root: {
@@ -34,7 +40,16 @@ const useStyles = makeStyles({
 function App() {
   const classes = useStyles();
   const [darkTheme, setDarkTheme] = React.useState(window.matchMedia('(prefers-color-scheme: dark)').matches);
-  const [options, setOptions] = React.useState(initial as ISourceOptions);
+  const [options, setOptions] = React.useState(stars as Options);
+  const backgrounds: Options[] = [
+    stars as Options,
+    snow as Options,
+    fire as Options,
+    bubbles as Options,
+    links as Options,
+    circles as Options,
+    spring as Options,
+  ];
 
   const theme = React.useMemo(() => createMuiTheme({
     palette: {
@@ -55,7 +70,9 @@ function App() {
       <Header
         darkTheme={darkTheme}
         setDarkTheme={setDarkTheme}
+        options={options}
         setOptions={setOptions}
+        backgrounds={backgrounds}
       />
       <main className={classes.root}>
         <Switch>

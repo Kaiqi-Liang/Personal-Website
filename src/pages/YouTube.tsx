@@ -30,13 +30,13 @@ const useStyles = makeStyles((theme: Theme) => ({
     marginRight: theme.spacing(2),
   },
   player: {
-    width: '64vw !important',
-    height: '36vw !important',
-    marginBottom: theme.spacing(3),
+    width: '50vw !important',
+    height: '30vw !important',
   },
   overview: {
     width: '50%',
     fontWeight: 'bold',
+    marginTop: theme.spacing(3),
   },
   visibility: {
     display: (loading) => loading ? 'none' : 'block',
