@@ -14,7 +14,7 @@ import thesisImage from '../assets/images/thesis.jpg';
 import appianImage from '../assets/images/appian.png';
 import lecturersAudio from '../assets/audio/lecturers.mp3';
 import thesisAudio from '../assets/audio/thesis.mp3';
-import appianAudio from '../assets/audio/lecturers.mp3';
+import appianAudio from '../assets/audio/appian.mp3';
 
 const useStyles = makeStyles((theme: Theme) => ({
   cardGrid: {
