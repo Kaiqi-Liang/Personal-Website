@@ -45,12 +45,12 @@ const useStyles = makeStyles((theme: Theme) => ({
 }));
 
 interface Project {
-  title: string,
-  description: string,
-  image: string,
-  github: string,
-  link: string,
-  button: string,
+  title: string;
+  description: string;
+  image: string;
+  github: string;
+  link: string;
+  button: string;
 }
 
 const CardItem = ({ title, description, image, github, link, button }: Project) => {

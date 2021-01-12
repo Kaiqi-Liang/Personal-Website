@@ -119,10 +119,10 @@ const Icons = ({
 interface Particles {
   color: {
     value: string,
-  },
+  };
   links: {
     color: string,
-  },
+  };
 }
 
 export default ({

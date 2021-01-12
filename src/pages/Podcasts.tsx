@@ -41,13 +41,13 @@ const useStyles = makeStyles((theme: Theme) => ({
 }));
 
 interface Podcast {
-  title: string,
-  date: string,
-  description: string,
-  image: string,
-  audio: '*.mp3',
-  apple: string,
-  spotify: string,
+  title: string;
+  date: string;
+  description: string;
+  image: string;
+  audio: '*.mp3';
+  apple: string;
+  spotify: string;
 }
 
 const podcasts: Podcast[] = [
