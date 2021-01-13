@@ -21,7 +21,7 @@ import Projects from './pages/Projects';
 import YouTube from './pages/YouTube';
 import Options from './Options';
 import stars from './presets/stars';
-import fire from './presets/fire';
+import flames from './presets/flames';
 import snow from './presets/snow';
 import molecules from './presets/molecules';
 import bubbles from './presets/bubbles';
@@ -46,7 +46,7 @@ function App() {
   const [options, setOptions] = React.useState(links as Options);
   const backgrounds: Options[] = [
     stars as Options,
-    fire as Options,
+    flames as Options,
     snow as Options,
     molecules as Options,
     bubbles as Options,

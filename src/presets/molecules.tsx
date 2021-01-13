@@ -24,7 +24,7 @@ export default {
       type: ShapeType.circle,
     },
     opacity: {
-      value: 1,
+      value: 0.8,
       random: true,
     },
     size: {

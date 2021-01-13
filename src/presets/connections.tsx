@@ -35,7 +35,7 @@ export default {
       value: 20,
     },
     opacity: {
-      value: 0.5,
+      value: 0.8,
     },
     shape: {
       type: ShapeType.circle,
