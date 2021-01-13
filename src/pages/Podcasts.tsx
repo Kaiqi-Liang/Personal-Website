@@ -48,6 +48,7 @@ interface Podcast {
   audio: '*.mp3';
   apple: string;
   spotify: string;
+  google: string;
 }
 
 const podcasts: Podcast[] = [
@@ -59,6 +60,7 @@ const podcasts: Podcast[] = [
     audio: lecturersAudio,
     apple: 'https://podcasts.apple.com/au/podcast/echo/id1455157876?i=1000449830345',
     spotify: 'https://open.spotify.com/embed-podcast/episode/5ERuxAuFrqDhhfQY613SNt',
+    google: 'https://podcasts.google.com/feed/aHR0cHM6Ly9mZWVkLnBvZGJlYW4uY29tL2NzZXNvYy9mZWVkLnhtbA/episode/Y3Nlc29jLnBvZGJlYW4uY29tL3RhbGtpbmctd2l0aC1sZWN0dXJlcnMtam9obi1zaGVwaGVyZC1hbmQtYW5kcmV3LXRheWxvci02ZDdkN2VhNWNhZTQ0YWYyMDAwYWJmZjJhZjFkNDliMA?sa=X&ved=0CAUQkfYCahcKEwj4hsiI-JfuAhUAAAAAHQAAAAAQaQ',
   },
   {
     title: 'Thesis Rundown Pt 1 w/ Hui Wu',
@@ -68,6 +70,7 @@ const podcasts: Podcast[] = [
     audio: thesisAudio,
     apple: 'https://podcasts.apple.com/au/podcast/echo/id1455157876?i=1000465874216',
     spotify: 'https://open.spotify.com/embed-podcast/episode/5IvhVhVv9EgPBbLnqMKVCM',
+    google: 'https://podcasts.google.com/feed/aHR0cHM6Ly9mZWVkLnBvZGJlYW4uY29tL2NzZXNvYy9mZWVkLnhtbA/episode/Y3Nlc29jLnBvZGJlYW4uY29tLzZkYjQyN2NiLTNiODctNWI5Ny1hZWQ5LTMzNjM0YTI3NDgwMQ?sa=X&ved=0CAUQkfYCahcKEwj4hsiI-JfuAhUAAAAAHQAAAAAQBA',
   },
   {
     title: 'Yappin with Appian w/ Kevin Huang & Miaad Hussain',
@@ -77,6 +80,7 @@ const podcasts: Podcast[] = [
     audio: appianAudio,
     apple: 'https://podcasts.apple.com/au/podcast/echo/id1455157876?i=1000472257209',
     spotify: 'https://open.spotify.com/embed-podcast/episode/4hRIXeyl74V1OJB7VNbWPh',
+    google: 'https://podcasts.google.com/feed/aHR0cHM6Ly9mZWVkLnBvZGJlYW4uY29tL2NzZXNvYy9mZWVkLnhtbA/episode/Y3Nlc29jLnBvZGJlYW4uY29tLzY1YmRiOGI0LTU0YTQtNTdhYi05NjkzLWJlMjVjZmM0MDVhNA?sa=X&ved=0CAUQkfYCahcKEwj4hsiI-JfuAhUAAAAAHQAAAAAQRQ',
   },
 ];
 
@@ -112,12 +116,17 @@ export default () => {
               <CardActions className={classes.cardActions}>
                 <Button size="small" color="primary" variant="contained">
                   <a href={podcast.apple} target="_blank" rel="noreferrer">
-                    Apple Podcasts
+                    Apple
                   </a>
                 </Button>
                 <Button size="small" color="primary" variant="contained">
                   <a href={podcast.spotify} target="_blank" rel="noreferrer">
                     Spotify
+                  </a>
+                </Button>
+                <Button size="small" color="primary" variant="contained">
+                  <a href={podcast.google} target="_blank" rel="noreferrer">
+                    Google
                   </a>
                 </Button>
               </CardActions>

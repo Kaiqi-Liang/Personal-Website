@@ -1,6 +1,6 @@
 import { ISourceOptions } from 'react-tsparticles';
 
-export default interface Options extends ISourceOptions {
-    name: 'bubbles' | 'circles' | 'fire' | 'gumballs' | 'links' | 'molecules' | 'snow' | 'spring' | 'star',
-    colorChange?: boolean, // TODO why doesn't this generate an error in App
+export default interface Options extends ISourceOptions { // TODO why doesn't doing something wrong here generate any errors in App.tsx, eg without ? in colorChange, miss one string in name
+    name: 'stars' | 'fire' | 'snow' | 'molecules' | 'bubbles' | 'links' | 'circles' | 'gumballs' | 'spring';
+    colorChange?: boolean;
 };
