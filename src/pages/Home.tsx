@@ -21,9 +21,6 @@ const useStyles = makeStyles((theme: Theme) => ({
     background: ({ darkTheme, options }: Props) =>
       options.name === 'circles' ? '' : `rgba(${darkTheme ? '0, 0, 0,' : '203, 234, 251,'} 0.5)`,
   },
-  p: {
-    fontSize: '1.25em',
-  },
 }));
 
 export default ({ darkTheme, options }: Props) => {
@@ -32,8 +29,6 @@ export default ({ darkTheme, options }: Props) => {
     <div className={classes.background}>
       <h1>Hi, my name is Kaiqi Liang!</h1>
       <h2>Programming is my passion, Software Engineering is my pursuit, global warming is my concern.</h2>
-      <p className={classes.p}>I am a <strong>Computer Science</strong> student at University of New South Wales (<strong>UNSW</strong>) and an <strong>Academic Tutor</strong> for several computing courses. Apart from that I am also an <strong>Environmentalist</strong>.</p>
-      <p className={classes.p}>I am the kind of person who always aims for perfection, even though most of the time it is unachievable, what matters the most is at end the end of the day I can tell myself that I tried my best and I have achieved the <strong>excellence</strong>.</p>
     </div>
   );
 };
