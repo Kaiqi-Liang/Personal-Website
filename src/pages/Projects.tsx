@@ -11,7 +11,8 @@ import {
   Typography,
   Button,
 } from '@material-ui/core';
-import youtube from '../assets/images/youtube.jpg';
+import youtube from '../assets/images/youtube.png';
+import website from '../assets/images/website.png';
 
 const useStyles = makeStyles((theme: Theme) => ({
   cardGrid: {
@@ -109,7 +110,7 @@ export default () => {
         <CardItem
           title="Personal Website"
           description="The website you are looking at right now. Enjoy browsing!"
-          image={youtube}
+          image={website}
           github="https://github.com/Kaiqi-Liang/Personal-Website"
           link="/"
           button="Link"

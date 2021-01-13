@@ -14,6 +14,7 @@ import {
 } from '@material-ui/core/styles';
 import Header from './components/Header';
 import Footer from './components/Footer';
+import Help from './components/Help';
 import Home from './pages/Home';
 import Resume from './pages/Resume';
 import Podcasts from './pages/Podcasts';
@@ -88,6 +89,7 @@ function App() {
           <Route exact path="/projects/YouTubeDistractionDisabler" component={YouTube} />
           <Route path="/" render={() => <Home darkTheme={darkTheme} options={options} />} />
         </Switch>
+        <Help />
       </main>
       <Footer />
     </ThemeProvider>
