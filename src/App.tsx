@@ -26,6 +26,7 @@ import snow from './presets/snow';
 import molecules from './presets/molecules';
 import bubbles from './presets/bubbles';
 import links from './presets/links';
+import connections from './presets/connections';
 import circles from './presets/circles';
 import gumballs from './presets/gumballs';
 import spring from './presets/spring';
@@ -50,6 +51,7 @@ function App() {
     molecules as Options,
     bubbles as Options,
     links as Options,
+    connections as Options,
     circles as Options,
     gumballs as Options,
     spring as Options,

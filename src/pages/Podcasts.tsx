@@ -46,8 +46,8 @@ interface Podcast {
   description: string;
   image: string;
   audio: '*.mp3';
-  apple: string;
   spotify: string;
+  apple: string;
   google: string;
 }
 
@@ -58,8 +58,8 @@ const podcasts: Podcast[] = [
     description: "In this week’s episode, Kaiqi and Jenny delve into the life of two prominent figures of the CSE faculty John Andrew Shepherd (Jas) and Andrew John Taylor, both senior lecturers at UNSW. Listen as they discuss their motivations and path into teaching as well as getting a little more insight about who they are outside of the lecture theatre.",
     image: lecturersImage,
     audio: lecturersAudio,
-    apple: 'https://podcasts.apple.com/au/podcast/echo/id1455157876?i=1000449830345',
     spotify: 'https://open.spotify.com/embed-podcast/episode/5ERuxAuFrqDhhfQY613SNt',
+    apple: 'https://podcasts.apple.com/au/podcast/echo/id1455157876?i=1000449830345',
     google: 'https://podcasts.google.com/feed/aHR0cHM6Ly9mZWVkLnBvZGJlYW4uY29tL2NzZXNvYy9mZWVkLnhtbA/episode/Y3Nlc29jLnBvZGJlYW4uY29tL3RhbGtpbmctd2l0aC1sZWN0dXJlcnMtam9obi1zaGVwaGVyZC1hbmQtYW5kcmV3LXRheWxvci02ZDdkN2VhNWNhZTQ0YWYyMDAwYWJmZjJhZjFkNDliMA?sa=X&ved=0CAUQkfYCahcKEwj4hsiI-JfuAhUAAAAAHQAAAAAQaQ',
   },
   {
@@ -68,8 +68,8 @@ const podcasts: Podcast[] = [
     description: "In this week's episode Kaiqi sits down with Hui Wu, the 2019 CSE Thesis Coordinator. He has received a BE and ME from Huazhong University of Science and Technology, and has a PhD from the National University of Singapore. He has extensive professional experience, but today, he'll be chatting to us about everything thesis-related: Why it's important, how to choose a thesis topic, the thesis process, and the other key issues in doing a thesis.",
     image: thesisImage,
     audio: thesisAudio,
-    apple: 'https://podcasts.apple.com/au/podcast/echo/id1455157876?i=1000465874216',
     spotify: 'https://open.spotify.com/embed-podcast/episode/5IvhVhVv9EgPBbLnqMKVCM',
+    apple: 'https://podcasts.apple.com/au/podcast/echo/id1455157876?i=1000465874216',
     google: 'https://podcasts.google.com/feed/aHR0cHM6Ly9mZWVkLnBvZGJlYW4uY29tL2NzZXNvYy9mZWVkLnhtbA/episode/Y3Nlc29jLnBvZGJlYW4uY29tLzZkYjQyN2NiLTNiODctNWI5Ny1hZWQ5LTMzNjM0YTI3NDgwMQ?sa=X&ved=0CAUQkfYCahcKEwj4hsiI-JfuAhUAAAAAHQAAAAAQBA',
   },
   {
@@ -78,8 +78,8 @@ const podcasts: Podcast[] = [
     description: "In this week's episode, join Kaiqi and Ryan as they head into Appian's Sydney office to have a chat about Appian with Solution Engineer Kevin Huang and Principal Consultant Miaad Hussain and other UNSW graduates! They'll be talking about how they got into Appian, what exactly it is that Appian does, the culture, the benefits, and what the recruitment process is!",
     image: appianImage,
     audio: appianAudio,
-    apple: 'https://podcasts.apple.com/au/podcast/echo/id1455157876?i=1000472257209',
     spotify: 'https://open.spotify.com/embed-podcast/episode/4hRIXeyl74V1OJB7VNbWPh',
+    apple: 'https://podcasts.apple.com/au/podcast/echo/id1455157876?i=1000472257209',
     google: 'https://podcasts.google.com/feed/aHR0cHM6Ly9mZWVkLnBvZGJlYW4uY29tL2NzZXNvYy9mZWVkLnhtbA/episode/Y3Nlc29jLnBvZGJlYW4uY29tLzY1YmRiOGI0LTU0YTQtNTdhYi05NjkzLWJlMjVjZmM0MDVhNA?sa=X&ved=0CAUQkfYCahcKEwj4hsiI-JfuAhUAAAAAHQAAAAAQRQ',
   },
 ];
@@ -87,7 +87,7 @@ const podcasts: Podcast[] = [
 export default () => {
   const classes = useStyles();
   return (
-    <Container className={classes.cardGrid} maxWidth="md">
+    <Container className={classes.cardGrid}>
       <Grid container spacing={4}>
         {podcasts.map((podcast) => (
           <Grid key={podcast.title} item xs={12} sm={6} md={4} container justify="center">
@@ -115,18 +115,18 @@ export default () => {
               />
               <CardActions className={classes.cardActions}>
                 <Button size="small" color="primary" variant="contained">
-                  <a href={podcast.apple} target="_blank" rel="noreferrer">
-                    Apple
+                  <a href={podcast.spotify} target="_blank" rel="noreferrer">
+                    Listen on Spotify
                   </a>
                 </Button>
                 <Button size="small" color="primary" variant="contained">
-                  <a href={podcast.spotify} target="_blank" rel="noreferrer">
-                    Spotify
+                  <a href={podcast.apple} target="_blank" rel="noreferrer">
+                    Apple Podcasts
                   </a>
                 </Button>
                 <Button size="small" color="primary" variant="contained">
                   <a href={podcast.google} target="_blank" rel="noreferrer">
-                    Google
+                    Google Podcasts
                   </a>
                 </Button>
               </CardActions>
