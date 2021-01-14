@@ -24,8 +24,8 @@ import {
   SwipeableDrawer,
   Divider,
 } from '@material-ui/core';
-import { Options } from '../Interface';
 import { ThemeContext } from "../App";
+import { Options } from '../Interface';
 
 const useStyles = makeStyles((theme: Theme) => ({
   flex: {

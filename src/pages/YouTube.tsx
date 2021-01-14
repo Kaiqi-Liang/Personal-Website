@@ -3,7 +3,15 @@ import ReactPlayer from 'react-player';
 import { makeStyles, Theme } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
 import Skeleton from '@material-ui/lab/Skeleton';
+import { ThemeContext } from "../App";
+import { Options } from '../Interface';
 import logo from '../assets/images/logo.png';
+
+interface Props {
+  loading: boolean;
+  darkTheme: boolean;
+  options: Options;
+}
 
 const useStyles = makeStyles((theme: Theme) => ({
   cardGrid: {
@@ -14,6 +22,7 @@ const useStyles = makeStyles((theme: Theme) => ({
     alignItems: 'center',
   },
   title: {
+    borderRadius: 30,
     display: 'flex',
     marginBottom: theme.spacing(2),
     justifyContent: 'center',
@@ -24,6 +33,8 @@ const useStyles = makeStyles((theme: Theme) => ({
     [theme.breakpoints.down('xs')]: {
       fontSize: '0.5em',
     },
+    background: ({ darkTheme, options }: Props) =>
+      darkTheme && options.name !== 'circles' ? 'linear-gradient(to right, #424242, transparent)' : '',
   },
   logo: {
     width: '10%',
@@ -39,13 +50,14 @@ const useStyles = makeStyles((theme: Theme) => ({
     marginTop: theme.spacing(3),
   },
   visibility: {
-    display: (loading) => loading ? 'none' : 'block',
+    display: ({ loading }) => loading ? 'none' : 'block',
   },
 }));
 
 export default () => {
+  const { darkTheme, options } = React.useContext(ThemeContext);
   const [loading, setLoading] = React.useReducer(() => false, true);
-  const classes = useStyles(loading);
+  const classes = useStyles({ loading, darkTheme, options });
   return (
     <Container className={classes.cardGrid} maxWidth="md">
       <div className={classes.title}>
