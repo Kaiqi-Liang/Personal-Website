@@ -20,7 +20,7 @@ import Resume from './pages/Resume';
 import Podcasts from './pages/Podcasts';
 import Projects from './pages/Projects';
 import YouTube from './pages/YouTube';
-import Options from './Options';
+import { Options, Context } from './Interface';
 import stars from './presets/stars';
 import flames from './presets/flames';
 import snow from './presets/snow';
@@ -41,9 +41,12 @@ const useStyles = makeStyles({
   },
 });
 
+const preferColorScheme = window.matchMedia('(prefers-color-scheme: dark)').matches;
+export const ThemeContext = React.createContext({ darkTheme: preferColorScheme, options: links } as Context);
+
 function App() {
   const classes = useStyles();
-  const [darkTheme, setDarkTheme] = React.useState(window.matchMedia('(prefers-color-scheme: dark)').matches);
+  const [darkTheme, setDarkTheme] = React.useState(preferColorScheme);
   const [options, setOptions] = React.useState(links as Options);
   const backgrounds: Options[] = [
     stars as Options,
@@ -71,28 +74,28 @@ function App() {
   }), [darkTheme]);
 
   return (
-    <ThemeProvider theme={theme}>
-      <CssBaseline />
-      <Particles options={options} />
-      <Header
-        darkTheme={darkTheme}
-        setDarkTheme={setDarkTheme}
-        options={options}
-        setOptions={setOptions}
-        backgrounds={backgrounds}
-      />
-      <main className={classes.root}>
-        <Switch>
-          <Route exact path="/resume" component={Resume} />
-          <Route exact path="/podcasts" component={Podcasts} />
-          <Route exact path="/projects" component={Projects} />
-          <Route exact path="/projects/YouTubeDistractionDisabler" component={YouTube} />
-          <Route path="/" render={() => <Home darkTheme={darkTheme} options={options} />} />
-        </Switch>
-        <Help />
-      </main>
-      <Footer />
-    </ThemeProvider>
+    <ThemeContext.Provider value={{ darkTheme, options }}>
+      <ThemeProvider theme={theme}>
+        <CssBaseline />
+        <Particles options={options} />
+        <Header
+          setDarkTheme={setDarkTheme}
+          setOptions={setOptions}
+          backgrounds={backgrounds}
+        />
+        <main className={classes.root}>
+          <Switch>
+            <Route exact path="/resume" component={Resume} />
+            <Route exact path="/podcasts" component={Podcasts} />
+            <Route exact path="/projects" component={Projects} />
+            <Route exact path="/projects/YouTubeDistractionDisabler" component={YouTube} />
+            <Route path="/" component={Home} />
+          </Switch>
+          <Help />
+        </main>
+        <Footer />
+      </ThemeProvider>
+    </ThemeContext.Provider>
   );
 }
 

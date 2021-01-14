@@ -24,7 +24,8 @@ import {
   SwipeableDrawer,
   Divider,
 } from '@material-ui/core';
-import Options from '../Options';
+import { Options } from '../Interface';
+import { ThemeContext } from "../App";
 
 const useStyles = makeStyles((theme: Theme) => ({
   flex: {
@@ -126,19 +127,16 @@ interface Particles {
 }
 
 export default ({
-  darkTheme,
   setDarkTheme,
-  options,
   setOptions,
   backgrounds,
 }: {
-  darkTheme: boolean,
   setDarkTheme: React.Dispatch<React.SetStateAction<boolean>>,
-  options: Options,
   setOptions: React.Dispatch<React.SetStateAction<Options>>,
   backgrounds: Options[],
 }) => {
   const classes = useStyles();
+  const { darkTheme, options } = React.useContext(ThemeContext);
   const [dialog, setDialog] = React.useReducer((dialog) => !dialog, false);
   const [drawer, setDrawer] = React.useReducer((drawer) => !drawer, false);
 
