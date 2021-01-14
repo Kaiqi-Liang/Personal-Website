@@ -24,7 +24,7 @@ export default ({ children }: { children: React.ReactNode }) => {
   const classes = useStyles(React.useContext(ThemeContext));
   return (
     <div className={classes.background}>
-        {children}
+      {children}
     </div>
   );
 };
