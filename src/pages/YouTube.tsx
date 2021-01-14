@@ -45,9 +45,13 @@ const useStyles = makeStyles((theme: Theme) => ({
     height: '30vw !important',
   },
   overview: {
+    borderRadius: 30,
+    padding: '1vh 1vw',
     width: '50%',
     fontWeight: 'bold',
     marginTop: theme.spacing(3),
+    background: ({ darkTheme, options }) =>
+      options.name === 'circles' ? '' : `rgba(${darkTheme ? '0, 0, 0,' : '203, 234, 251,'} 0.5)`,
   },
   visibility: {
     display: ({ loading }) => loading ? 'none' : 'block',

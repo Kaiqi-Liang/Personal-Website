@@ -112,7 +112,7 @@ export default () => {
           description="The website you are looking at right now. Enjoy browsing!"
           image={website}
           github="https://github.com/Kaiqi-Liang/Personal-Website"
-          link="/"
+          link="/" // TODO use the deployed link
           button="Link"
         />
       </Grid>
