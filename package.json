@@ -19,6 +19,7 @@
     "react-player": "^2.7.2",
     "react-router-dom": "^5.2.0",
     "react-scripts": "4.0.1",
+    "react-text-loop": "^2.3.0",
     "react-tsparticles": "^1.18.11",
     "tslib": "^2.0.3",
     "typescript": "^4.0.3",
