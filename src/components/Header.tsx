@@ -46,6 +46,10 @@ const useStyles = makeStyles((theme: Theme) => ({
   },
   select: {
     marginLeft: 24,
+    width: 200,
+    [theme.breakpoints.down('xs')]: {
+      width: 'unset',
+    },
   },
   nav: {
     [theme.breakpoints.down('xs')]: {
