@@ -16,7 +16,7 @@ import Header from './components/Header';
 import Footer from './components/Footer';
 import Help from './components/Help';
 import Home from './pages/Home';
-import Resume from './pages/Resume';
+import About from './pages/About';
 import Podcasts from './pages/Podcasts';
 import Projects from './pages/Projects';
 import YouTube from './pages/YouTube';
@@ -85,7 +85,7 @@ function App() {
         />
         <main className={classes.root}>
           <Switch>
-            <Route exact path="/resume" component={Resume} />
+            <Route exact path="/about" component={About} />
             <Route exact path="/podcasts" component={Podcasts} />
             <Route exact path="/projects" component={Projects} />
             <Route exact path="/projects/YouTubeDistractionDisabler" component={YouTube} />
