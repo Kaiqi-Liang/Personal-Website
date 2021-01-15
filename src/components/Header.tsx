@@ -46,7 +46,6 @@ const useStyles = makeStyles((theme: Theme) => ({
   },
   select: {
     marginLeft: 24,
-    width: 200,
   },
   nav: {
     [theme.breakpoints.down('xs')]: {
@@ -205,7 +204,7 @@ export default ({
                 <Autocomplete
                   className={classes.select}
                   options={backgrounds.map((background) => background.name)}
-                  renderInput={(params) => <TextField {...params} label="Background Options" variant="outlined" />}
+                  renderInput={(params) => <TextField {...params} label="Options" variant="outlined" />}
                   value={options.name}
                   onChange={(_, value) => {
                     if (value) {
