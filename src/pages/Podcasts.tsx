@@ -45,7 +45,7 @@ interface Podcast {
   date: string;
   description: string;
   image: string;
-  audio: '*.mp3';
+  audio: string;
   spotify: string;
   apple: string;
   google: string;

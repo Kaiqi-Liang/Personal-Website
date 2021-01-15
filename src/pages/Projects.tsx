@@ -12,7 +12,7 @@ import {
   Button,
 } from '@material-ui/core';
 import youtube from '../assets/images/youtube.png';
-import website from '../assets/images/website.png';
+import website from '../assets/video/website.mov';
 
 const useStyles = makeStyles((theme: Theme) => ({
   cardGrid: {
@@ -30,10 +30,6 @@ const useStyles = makeStyles((theme: Theme) => ({
     display: 'flex',
     flexDirection: 'column',
   },
-  cardMedia: {
-    paddingTop: '56.25%', // 16:9
-    width: '100%',
-  },
   cardActionArea: {
     flexGrow: 1,
     display: 'flex',
@@ -48,13 +44,13 @@ const useStyles = makeStyles((theme: Theme) => ({
 interface Project {
   title: string;
   description: string;
-  image: string;
+  src: string;
   github: string;
   link: string;
   button: string;
 }
 
-const CardItem = ({ title, description, image, github, link, button }: Project) => {
+const CardItem = ({ title, description, src, github, link, button }: Project) => {
   const classes = useStyles();
   const history = useHistory();
   return (
@@ -65,8 +61,9 @@ const CardItem = ({ title, description, image, github, link, button }: Project) 
           onClick={() => history.push(`/projects/${title.split('').filter((ch) => ch !== ' ').join('')}`)}
         >
           <CardMedia
-            className={classes.cardMedia}
-            image={image}
+            component={src.indexOf('mov') > 0 ? 'video' : 'img'}
+            autoPlay
+            src={src}
           />
           <CardContent>
             <Typography gutterBottom variant="h5" component="h2">
@@ -102,7 +99,7 @@ export default () => {
         <CardItem
           title="YouTube Distraction Disabler"
           description="A productivity Google Chrome extension which removes distracting video suggestions on YouTube."
-          image={youtube}
+          src={youtube}
           github="https://github.com/Kaiqi-Liang/YouTube-Distraction-Disabler"
           link="https://chrome.google.com/webstore/detail/youtube-distraction-disab/klhmhijgenkomhcobnbdnjkkefbghfab?hl=en-GB"
           button="Chrome Store"
@@ -110,7 +107,7 @@ export default () => {
         <CardItem
           title="Personal Website"
           description="The website you are looking at right now. Enjoy browsing!"
-          image={website}
+          src={website}
           github="https://github.com/Kaiqi-Liang/Personal-Website"
           link="/" // TODO use the deployed link
           button="Link"
