@@ -1,19 +1,6 @@
 import Background from '../components/Background';
 import TextLoop from 'react-text-loop';
 
-const details = {
-  first: [
-    'Programming',
-    'Software Engineering',
-    'Global Warming',
-  ],
-  second: [
-    'passion',
-    'pursuit',
-    'concern',
-  ],
-};
-
 export default () => {
   return (
     <Background>
@@ -21,11 +8,19 @@ export default () => {
       <h2>I'm Kaiqi Liang</h2>
       <h3>
         <TextLoop interval={1500}>
-          {details.first}
+          {[
+            'Programming',
+            'Software Engineering',
+            'Global Warming',
+          ]}
         </TextLoop>
         {` is my `}
         <TextLoop interval={1500}>
-          {details.second}
+          {[
+            'passion',
+            'pursuit',
+            'concern',
+          ]}
         </TextLoop>
       </h3>
     </Background>

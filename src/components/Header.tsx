@@ -71,17 +71,26 @@ const Nav = ({ flex }: { flex: boolean }) => {
   return (
     <List className={flex ? classes.ul : ''}>
       <ListItem className={flex ? classes.li : ''}>
-        <Button className={classes.bold} variant={variant("/about")}>
+        <Button
+          className={classes.bold}
+          variant={variant("/about")}
+        >
           <Link to='/about'>About</Link>
         </Button>
       </ListItem>
       <ListItem className={flex ? classes.li : ''}>
-        <Button className={classes.bold} variant={variant("/projects")}>
+        <Button
+          className={classes.bold}
+          variant={variant("/projects")}
+        >
           <Link to='/projects'>PROJECTS</Link>
         </Button>
       </ListItem>
       <ListItem className={flex ? classes.li : ''}>
-        <Button className={classes.bold} variant={variant("/podcasts")}>
+        <Button
+          className={classes.bold}
+          variant={variant("/podcasts")}
+        >
           <Link to='/podcasts'>PODCASTS</Link>
         </Button>
       </ListItem>
