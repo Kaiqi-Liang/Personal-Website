@@ -1,5 +1,5 @@
 import React from 'react';
-import { makeStyles, Theme } from '@material-ui/core';
+import { makeStyles, Theme, Tooltip } from '@material-ui/core';
 import styled from 'styled-components';
 import Background from '../components/Background';
 import linkedin from '../assets/images/linkedin.png';
@@ -37,6 +37,7 @@ const useStyles = makeStyles((theme: Theme) => ({
   img: {
     width: '100%',
     borderRadius: '50%',
+    marginBottom: theme.spacing(3),
   },
   section: {
     display: 'flex',
@@ -64,12 +65,13 @@ const Paragraph = styled.p({
 
 export default () => {
   const classes = useStyles();
+  const getSkill = (skill: string) => (skill.split('/').pop() as string).split('.').shift() as string;
   return (
     <Background>
       <img
         className={classes.img}
         src={linkedin}
-        alt="LinkedIn Profile Picture"
+        alt="LinkedIn Profile"
       />
       <Paragraph>
         I am a <strong>Computer Science</strong> student at the University of New South Wales (<strong>UNSW</strong>) and an <strong>Academic Tutor</strong> for several computing courses. Apart from that I am also an <strong>Environmentalist</strong>.
@@ -83,11 +85,13 @@ export default () => {
             className={classes.container}
             key={skill}
           >
-            <img
-              className={classes.icon}
-              src={skill}
-              alt={skill.split('/').pop()?.split('.').shift()}
-            />
+            <Tooltip title={getSkill(skill)} aria-label={getSkill(skill)}>
+              <img
+                className={classes.icon}
+                src={skill}
+                alt={getSkill(skill)}
+              />
+            </Tooltip>
           </div>
         )}
       </section>

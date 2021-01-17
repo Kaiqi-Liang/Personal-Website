@@ -30,7 +30,6 @@ export default () => {
               <article className={classes.tooltip}>
                 <h4>Wanna see more cool stuff ?</h4>
                 <p>Click the gear icon at the top right corner to change the background. If you don't see it click the menu icon first.</p>
-                <p>More options are coming in the future whenever possible!</p>
               </article>
             }
             aria-label="help"
