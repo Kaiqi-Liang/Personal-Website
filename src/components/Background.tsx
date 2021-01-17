@@ -1,6 +1,6 @@
 import React from 'react';
 import { makeStyles, Theme } from '@material-ui/core';
-import { ThemeContext } from "../App";
+import { ThemeContext } from '../App';
 import { Context } from '../Interface';
 
 const useStyles = makeStyles((theme: Theme) => ({

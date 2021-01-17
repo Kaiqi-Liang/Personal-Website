@@ -14,7 +14,7 @@ export default () => {
             'Global Warming',
           ]}
         </TextLoop>
-        {` is my `}
+        {' is my '}
         <TextLoop interval={1500}>
           {[
             'passion',

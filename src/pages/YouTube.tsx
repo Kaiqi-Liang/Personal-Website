@@ -3,7 +3,7 @@ import ReactPlayer from 'react-player';
 import { makeStyles, Theme } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
 import Skeleton from '@material-ui/lab/Skeleton';
-import { ThemeContext } from "../App";
+import { ThemeContext } from '../App';
 import { Options } from '../Interface';
 import logo from '../assets/images/logo.png';
 

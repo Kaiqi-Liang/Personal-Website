@@ -1,4 +1,4 @@
-import { MoveDirection, ShapeType } from "tsparticles";
+import { MoveDirection, ShapeType } from 'tsparticles';
 
 export default {
   name: 'snow',
@@ -8,7 +8,7 @@ export default {
   },
   particles: {
     color: {
-      value: "#fff",
+      value: '#fff',
     },
     move: {
       bounce: false,

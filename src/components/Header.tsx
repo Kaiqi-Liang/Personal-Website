@@ -24,7 +24,7 @@ import {
   SwipeableDrawer,
   Divider,
 } from '@material-ui/core';
-import { ThemeContext } from "../App";
+import { ThemeContext } from '../App';
 import { Options } from '../Interface';
 
 const useStyles = makeStyles((theme: Theme) => ({
@@ -66,14 +66,14 @@ const useStyles = makeStyles((theme: Theme) => ({
 const Nav = ({ flex }: { flex: boolean }) => {
   const classes = useStyles();
   const { pathname } = useLocation();
-  const variant = (currPath: string) => pathname === currPath ? "outlined" : "text";
+  const variant = (currPath: string) => pathname === currPath ? 'outlined' : 'text';
 
   return (
     <List className={flex ? classes.ul : ''}>
       <ListItem className={flex ? classes.li : ''}>
         <Button
           className={classes.bold}
-          variant={variant("/about")}
+          variant={variant('/about')}
         >
           <Link to='/about'>About</Link>
         </Button>
@@ -81,7 +81,7 @@ const Nav = ({ flex }: { flex: boolean }) => {
       <ListItem className={flex ? classes.li : ''}>
         <Button
           className={classes.bold}
-          variant={variant("/projects")}
+          variant={variant('/projects')}
         >
           <Link to='/projects'>PROJECTS</Link>
         </Button>
@@ -89,7 +89,7 @@ const Nav = ({ flex }: { flex: boolean }) => {
       <ListItem className={flex ? classes.li : ''}>
         <Button
           className={classes.bold}
-          variant={variant("/podcasts")}
+          variant={variant('/podcasts')}
         >
           <Link to='/podcasts'>PODCASTS</Link>
         </Button>
@@ -112,14 +112,14 @@ const Icons = ({
   return (
     <>
       <IconButton
-        edge={edge && "end"}
+        edge={edge && 'end'}
         onClick={changeTheme}
         aria-label="change theme"
       >
         {darkTheme ? <LightMode /> : <DarkMode />}
       </IconButton>
       <IconButton
-        edge={edge && "end"}
+        edge={edge && 'end'}
         onClick={setDialog}
         aria-label="settings"
       >
@@ -160,10 +160,10 @@ export default ({
   const changeBackground = (darkTheme: boolean) => {
     setOptions((options: Options) => {
       const newOptions: Options = JSON.parse(JSON.stringify(options));
-      (newOptions.background as { color: string }).color = darkTheme ? "#cbeafb" : "#000";
+      (newOptions.background as { color: string }).color = darkTheme ? '#cbeafb' : '#000';
       const particles = newOptions.particles as Particles;
-      if (particles.links) particles.links.color = darkTheme ? "#000" : "#fff";
-      if (newOptions.colorChange) particles.color.value = darkTheme ? "#000" : "#fff";
+      if (particles.links) particles.links.color = darkTheme ? '#000' : '#fff';
+      if (newOptions.colorChange) particles.color.value = darkTheme ? '#000' : '#fff';
       return newOptions;
     });
   };

@@ -1,4 +1,4 @@
-import { ClickMode, HoverMode, InteractivityDetect, MoveDirection, OutMode, ShapeType } from "react-tsparticles";
+import { ClickMode, HoverMode, InteractivityDetect, MoveDirection, OutMode, ShapeType } from 'react-tsparticles';
 
 export default {
   name: 'connections',

@@ -89,7 +89,7 @@ const CardItem = ({ title, description, src, github, link, button }: Project) =>
       </Card>
     </Grid>
   );
-}
+};
 
 export default () => {
   const classes = useStyles();
