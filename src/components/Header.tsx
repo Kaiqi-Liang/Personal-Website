@@ -5,8 +5,8 @@ import DarkMode from '@material-ui/icons/Brightness4';
 import LightMode from '@material-ui/icons/Brightness7';
 import Settings from '@material-ui/icons/Settings';
 import MenuIcon from '@material-ui/icons/Menu';
-import makeStyles from '@material-ui/core/styles/makeStyles';
 import {
+  makeStyles,
   Button,
   IconButton,
   Typography,

@@ -1,6 +1,6 @@
 import { useHistory } from 'react-router-dom';
-import makeStyles from '@material-ui/core/styles/makeStyles';
 import {
+  makeStyles,
   Container,
   Grid,
   Card,

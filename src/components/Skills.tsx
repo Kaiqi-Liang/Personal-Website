@@ -25,13 +25,13 @@ const useStyles = makeStyles((theme) => ({
     justifyContent: 'space-between',
     width: '100%',
     maxWidth: 600,
-    margin: `${theme.spacing(5)}px 0`,
+    margin: theme.spacing(5, 0),
     padding: theme.spacing(3),
     borderRadius: 30,
   },
   container: {
     width: '10%',
-    margin: `${theme.spacing(1)}px`,
+    margin: theme.spacing(1),
   },
   icon: {
     width: '100%',

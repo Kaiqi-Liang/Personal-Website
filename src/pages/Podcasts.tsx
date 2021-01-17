@@ -1,6 +1,8 @@
-import makeStyles from '@material-ui/core/styles/makeStyles';
+import React from 'react';
 import {
+  makeStyles,
   Container,
+  Link,
   Grid,
   Card,
   CardMedia,
@@ -17,6 +19,14 @@ import thesisAudio from '../assets/audio/thesis.mp3';
 import appianAudio from '../assets/audio/appian.mp3';
 
 const useStyles = makeStyles((theme) => ({
+  section: {
+    background: theme.palette.background.paper,
+    padding: theme.spacing(8, 0, 6),
+    width: '100vw',
+  },
+  buttons: {
+    marginTop: theme.spacing(4),
+  },
   cardGrid: {
     paddingTop: theme.spacing(8),
     paddingBottom: theme.spacing(8),
@@ -84,56 +94,128 @@ const podcasts: Podcast[] = [
   },
 ];
 
+interface Props {
+  link: string;
+  children: React.ReactNode;
+}
+
+const ButtonLink = ({ link, children }: Props) => (
+  <Button
+    color="primary"
+    size="small"
+    variant="contained"
+  >
+    <a
+      href={link}
+      target="_blank"
+      rel="noreferrer"
+    >
+      {children}
+    </a>
+  </Button>
+);
+
+const Anchor = ({ link, children }: Props) => (
+  <Link
+    color="inherit"
+    href={link}
+    target="_blank"
+    rel="noreferrer"
+  >
+    <em>{children}</em>
+  </Link>
+);
+
 export default () => {
   const classes = useStyles();
+  const [hover, setHover] = React.useReducer((hover) => !hover, false);
   return (
-    <Container className={classes.cardGrid}>
-      <Grid container spacing={4}>
-        {podcasts.map((podcast) => (
-          <Grid key={podcast.title} item xs={12} sm={6} md={4} container justify="center">
-            <Card className={classes.card}>
-              <CardMedia
-                className={classes.cardMedia}
-                image={podcast.image}
-              />
-              <CardContent className={classes.cardContent}>
-                <Typography gutterBottom variant="h5" component="h2">
-                  {podcast.title}
+    <>
+      <section
+        className={classes.section}
+        onMouseEnter={setHover}
+        onMouseLeave={setHover}
+      >
+        <Container maxWidth="sm">
+          <Typography component="h1" variant="h2" align="center" color="textPrimary" gutterBottom>
+            Podcasts
+          </Typography>
+          {hover && (
+            <>
+              <Typography variant="h5" align="center" color="textSecondary" paragraph>
+                Echo is Computer Science Engineering Society (<Anchor link="http://csesoc.unsw.edu.au">CSESoc</Anchor>)'s own podcast where we talk about topics all over the place related to technology and university life.
+              </Typography>
+              <Typography variant="h5" align="center" color="textSecondary" paragraph>
+                I made the following episodes when I was a subcommittee member of the <Anchor link="https://media.csesoc.org.au">CSESoc Media Team</Anchor>.
+              </Typography>
+              <div className={classes.buttons}>
+                <Typography variant="h5" align="center" color="textSecondary" paragraph>
+                  You can find other episodes on Echo here or wherever you find your podcasts.
                 </Typography>
-                <Typography gutterBottom>
-                  {podcast.description}
-                </Typography>
-                <Typography variant="body2" color="textSecondary" component="time">
-                  {podcast.date}
-                </Typography>
-              </CardContent>
-              <CardMedia
-                className={classes.audio}
-                controls
-                component="audio"
-                src={podcast.audio}
-              />
-              <CardActions className={classes.cardActions}>
-                <Button size="small" color="primary" variant="contained">
-                  <a href={podcast.spotify} target="_blank" rel="noreferrer">
+                <Grid container spacing={2} justify="center">
+                  <Grid item>
+                    <ButtonLink link="https://open.spotify.com/show/2h9OxTkeKNznIfNqMMYcxj">
+                      Spotify
+                    </ButtonLink>
+                  </Grid>
+                  <Grid item>
+                    <ButtonLink link="https://podcasts.apple.com/au/podcast/echo/id1455157876">
+                      Apple Podcasts
+                    </ButtonLink>
+                  </Grid>
+                  <Grid item>
+                    <ButtonLink link="https://podcasts.google.com/feed/aHR0cHM6Ly9mZWVkLnBvZGJlYW4uY29tL2NzZXNvYy9mZWVkLnhtbA?sa=X&ved=0CAMQ4aUDahcKEwi4vMPA4aLuAhUAAAAAHQAAAAAQAQ">
+                      Google Podcasts
+                    </ButtonLink>
+                  </Grid>
+                </Grid>
+              </div>
+            </>
+          )}
+        </Container>
+      </section>
+      <Container className={classes.cardGrid}>
+        <Grid container spacing={4}>
+          {podcasts.map((podcast) => (
+            <Grid key={podcast.title} item xs={12} sm={6} md={4} container justify="center">
+              <Card className={classes.card}>
+                <CardMedia
+                  className={classes.cardMedia}
+                  image={podcast.image}
+                />
+                <CardContent className={classes.cardContent}>
+                  <Typography gutterBottom variant="h5" component="h2">
+                    {podcast.title}
+                  </Typography>
+                  <Typography gutterBottom>
+                    {podcast.description}
+                  </Typography>
+                  <Typography variant="body2" color="textSecondary" component="time">
+                    {podcast.date}
+                  </Typography>
+                </CardContent>
+                <CardMedia
+                  className={classes.audio}
+                  controls
+                  component="audio"
+                  src={podcast.audio}
+                />
+                <CardActions className={classes.cardActions}>
+                  <ButtonLink link={podcast.spotify}>
                     Listen on Spotify
-                  </a>
-                </Button>
-                <Button size="small" color="primary" variant="contained">
-                  <a href={podcast.apple} target="_blank" rel="noreferrer">
+                  </ButtonLink>
+                  <ButtonLink link={podcast.apple}>
                     Apple Podcasts
-                  </a>
-                </Button>
-                <Button size="small" color="primary" variant="contained">
-                  <a href={podcast.google} target="_blank" rel="noreferrer">
+                  </ButtonLink>
+                  <ButtonLink link={podcast.google}>
                     Google Podcasts
-                  </a>
-                </Button>
-              </CardActions>
-            </Card>
-          </Grid>
-        ))}
-      </Grid>
-    </Container>
+                  </ButtonLink>
+                </CardActions>
+              </Card>
+            </Grid>
+          ))}
+        </Grid>
+      </Container>
+    </>
   );
 };
