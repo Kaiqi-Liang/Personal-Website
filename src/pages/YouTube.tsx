@@ -13,7 +13,7 @@ interface Props {
   options: Options;
 }
 
-const useStyles = makeStyles((theme: Theme) => ({
+const useStyles = makeStyles((theme: Theme) => ({ // TODO why can't Theme be removed like in Background.tsx and use type inference
   cardGrid: {
     paddingTop: theme.spacing(8),
     paddingBottom: theme.spacing(8),

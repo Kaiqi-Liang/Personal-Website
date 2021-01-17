@@ -5,7 +5,7 @@ import DarkMode from '@material-ui/icons/Brightness4';
 import LightMode from '@material-ui/icons/Brightness7';
 import Settings from '@material-ui/icons/Settings';
 import MenuIcon from '@material-ui/icons/Menu';
-import { makeStyles, Theme } from '@material-ui/core/styles';
+import makeStyles from '@material-ui/core/styles/makeStyles';
 import {
   Button,
   IconButton,
@@ -27,7 +27,7 @@ import {
 import { ThemeContext } from '../App';
 import { Options } from '../Interface';
 
-const useStyles = makeStyles((theme: Theme) => ({
+const useStyles = makeStyles((theme) => ({
   flex: {
     display: 'flex',
     justifyContent: 'space-between',

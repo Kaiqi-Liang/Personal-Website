@@ -1,9 +1,9 @@
 import React from 'react';
-import { makeStyles, Theme } from '@material-ui/core';
+import makeStyles from '@material-ui/core/styles/makeStyles';
 import { ThemeContext } from '../App';
 import { Context } from '../Interface';
 
-const useStyles = makeStyles((theme: Theme) => ({
+const useStyles = makeStyles((theme) => ({
   background: {
     borderRadius: 30,
     padding: '10vh 10vw',

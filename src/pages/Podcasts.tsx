@@ -1,4 +1,4 @@
-import { makeStyles, Theme } from '@material-ui/core/styles';
+import makeStyles from '@material-ui/core/styles/makeStyles';
 import {
   Container,
   Grid,
@@ -16,7 +16,7 @@ import lecturersAudio from '../assets/audio/lecturers.mp3';
 import thesisAudio from '../assets/audio/thesis.mp3';
 import appianAudio from '../assets/audio/appian.mp3';
 
-const useStyles = makeStyles((theme: Theme) => ({
+const useStyles = makeStyles((theme) => ({
   cardGrid: {
     paddingTop: theme.spacing(8),
     paddingBottom: theme.spacing(8),

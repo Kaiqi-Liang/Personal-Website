@@ -1,5 +1,5 @@
 import { useHistory } from 'react-router-dom';
-import { makeStyles, Theme } from '@material-ui/core/styles';
+import makeStyles from '@material-ui/core/styles/makeStyles';
 import {
   Container,
   Grid,
@@ -14,7 +14,7 @@ import {
 import youtube from '../assets/images/youtube.png';
 import website from '../assets/video/website.mov';
 
-const useStyles = makeStyles((theme: Theme) => ({
+const useStyles = makeStyles((theme) => ({
   cardGrid: {
     paddingTop: theme.spacing(8),
     paddingBottom: theme.spacing(8),

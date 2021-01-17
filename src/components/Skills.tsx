@@ -1,5 +1,5 @@
 import React from 'react';
-import { makeStyles, Theme, Tooltip } from '@material-ui/core';
+import { makeStyles, Tooltip } from '@material-ui/core';
 import { ThemeContext } from '../App';
 import git from '../assets/icons/git.svg';
 import python from '../assets/icons/python.svg';
@@ -18,7 +18,7 @@ import illustrator_plain from '../assets/icons/illustrator-plain.svg';
 import premierepro_line from '../assets/icons/premierepro-line.svg';
 import premierepro_plain from '../assets/icons/premierepro-plain.svg';
 
-const useStyles = makeStyles((theme: Theme) => ({
+const useStyles = makeStyles((theme) => ({
   section: {
     display: 'flex',
     flexWrap: 'wrap',
