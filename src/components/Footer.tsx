@@ -44,7 +44,7 @@ export default () => {
       setTime(new Date().toLocaleString());
     }, 1000);
   }, []);
-
+  // TODO why doesn't this complain about not having rel="noreferrer"
   return (
     <footer className={classes.footer}>
       <Container maxWidth="sm" className={classes.container}>

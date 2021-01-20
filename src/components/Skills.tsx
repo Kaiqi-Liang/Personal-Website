@@ -24,7 +24,6 @@ const useStyles = makeStyles((theme) => ({
     flexWrap: 'wrap',
     justifyContent: 'space-between',
     width: '100%',
-    maxWidth: 600,
     margin: theme.spacing(5, 0),
     padding: theme.spacing(3),
     borderRadius: 30,

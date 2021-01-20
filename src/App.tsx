@@ -48,7 +48,7 @@ export const ThemeContext = React.createContext({ darkTheme: preferColorScheme, 
 function App() {
   const classes = useStyles();
   const [darkTheme, setDarkTheme] = React.useState(preferColorScheme);
-  const [options, setOptions] = React.useState(spring as Options);
+  const [options, setOptions] = React.useState(links as Options);
   const backgrounds: Options[] = [
     stars as Options,
     flames as Options,

@@ -26,14 +26,14 @@ export default () => {
         alt="LinkedIn Profile"
       />
       <Paragraph>
-        I am a <strong>Computer Science</strong> student at the University of New South Wales (<strong>UNSW</strong>) and an <strong>Academic Tutor</strong> for several computing courses. Apart from that I am also an <strong>Environmentalist</strong>.
+        I am an <strong>Academic Tutor</strong> for several computing courses and a <strong>Computer Science</strong> student at the University of New South Wales (<strong>UNSW</strong>).
       </Paragraph>
       <Paragraph>
-        I am the kind of person who always aims for perfection, even though most of the time it is unachievable, what matters the most is at the end of the day I can tell myself that I tried my best and I have achieved <strong>excellence</strong>.
+        I am the kind of person who always aims for perfection, even though most of the time it is unachievable. What matters the most is at the end of the day I can tell myself that I tried my best and I have achieved <strong>excellence</strong>.
       </Paragraph>
       <Skills />
       <Paragraph>
-        More about me coming up soon!
+        More about me coming soon!
       </Paragraph>
     </Background>
   );

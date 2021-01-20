@@ -8,7 +8,6 @@ const useStyles = makeStyles((theme) => ({
     borderRadius: 30,
     padding: '10vh 10vw',
     textAlign: 'center',
-    width: '50vw',
     minWidth: 600,
     maxWidth: 960,
     [theme.breakpoints.down('xs')]: {
