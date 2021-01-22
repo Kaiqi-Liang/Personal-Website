@@ -17,6 +17,7 @@ import illustrator_line from '../assets/icons/illustrator-line.svg';
 import illustrator_plain from '../assets/icons/illustrator-plain.svg';
 import premierepro_line from '../assets/icons/premierepro-line.svg';
 import premierepro_plain from '../assets/icons/premierepro-plain.svg';
+import audition from '../assets/icons/audition.svg';
 
 const useStyles = makeStyles((theme) => ({
   section: {
@@ -55,6 +56,7 @@ export default () => {
     options.name === 'circles' ? photoshop_line : darkTheme ? photoshop_line : photoshop_plain,
     options.name === 'circles' ? illustrator_line : darkTheme ? illustrator_line : illustrator_plain,
     options.name === 'circles' ? premierepro_line : darkTheme ? premierepro_line : premierepro_plain,
+    audition,
   ];
 
   const getSkill = (skill: string) => ((skill.split('/').pop() as string)
