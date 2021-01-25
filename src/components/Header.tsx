@@ -36,9 +36,12 @@ const useStyles = makeStyles((theme) => ({
   bold: {
     fontWeight: 'bold',
   },
-  ul: {
+  header: {
     display: 'flex',
     padding: 0,
+  },
+  drawer: {
+    paddingRight: '30vw',
   },
   li: {
     paddingLeft: 0,
@@ -61,6 +64,9 @@ const useStyles = makeStyles((theme) => ({
       display: 'none',
     },
   },
+  icons: {
+    padding: theme.spacing(2),
+  },
 }));
 
 const Nav = ({ flex }: { flex: boolean }) => {
@@ -69,7 +75,7 @@ const Nav = ({ flex }: { flex: boolean }) => {
   const variant = (currPath: string) => pathname === currPath ? 'outlined' : 'text';
 
   return (
-    <List className={flex ? classes.ul : ''}>
+    <List className={flex ? classes.header : classes.drawer}>
       <ListItem className={flex ? classes.li : ''}>
         <Button
           className={classes.bold}
@@ -109,8 +115,9 @@ const Icons = ({
   changeTheme: () => void,
   setDialog: React.DispatchWithoutAction,
 }) => {
+  const classes = useStyles();
   return (
-    <>
+    <div className={edge ? '' : classes.icons}>
       <IconButton
         edge={edge && 'end'}
         onClick={changeTheme}
@@ -125,7 +132,7 @@ const Icons = ({
       >
         <Settings />
       </IconButton>
-    </>
+    </div>
   );
 };
 
@@ -169,7 +176,7 @@ export default ({
   };
 
   return (
-    <AppBar position="static">
+    <AppBar position="sticky">
       <Toolbar className={classes.flex}>
         <Typography
           component={Link}

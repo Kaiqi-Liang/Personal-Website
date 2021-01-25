@@ -20,6 +20,7 @@ const useStyles = makeStyles((theme) => ({
   container: {
     display: 'flex',
     justifyContent: 'space-around',
+    alignItems: 'center',
   },
   icons: {
     display: 'flex',
@@ -33,27 +34,17 @@ const Copyright = () => (
     <Link color="inherit" href="#">
       Kaiqi Liang
     </Link>
+    {' 2020'}
   </Typography>
 );
 
 export default () => {
   const classes = useStyles();
-  const [time, setTime] = React.useState(new Date().toLocaleString());
-  React.useEffect(() => {
-    setInterval(() => {
-      setTime(new Date().toLocaleString());
-    }, 1000);
-  }, []);
   // TODO why doesn't this complain about not having rel="noreferrer"
   return (
     <footer className={classes.footer}>
       <Container maxWidth="sm" className={classes.container}>
-        <div>
-          <Typography variant="body1">
-            <time>{time}</time>
-          </Typography>
-          <Copyright />
-        </div>
+        <Copyright />
         <div className={classes.icons}>
           <Tooltip title="LinkedIn" aria-label="LinkedIn">
             <Link target="_blank" href="https://www.linkedin.com/in/kaiqiliang/">

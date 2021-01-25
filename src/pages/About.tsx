@@ -2,7 +2,7 @@ import makeStyles from '@material-ui/core/styles/makeStyles';
 import styled from 'styled-components';
 import Background from '../components/Background';
 import Skills from '../components/Skills';
-import linkedin from '../assets/images/linkedin.png';
+import linkedin from '../assets/images/linkedin.jpg';
 
 const useStyles = makeStyles((theme) => ({
   img: {
