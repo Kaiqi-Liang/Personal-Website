@@ -26,6 +26,9 @@ const useStyles = makeStyles((theme) => ({
     display: 'flex',
     alignItems: 'center',
   },
+  link: {
+    display: 'flex',
+  },
 }));
 
 const Copyright = () => (
@@ -47,13 +50,21 @@ export default () => {
         <Copyright />
         <div className={classes.icons}>
           <Tooltip title="LinkedIn" aria-label="LinkedIn">
-            <Link target="_blank" href="https://www.linkedin.com/in/kaiqiliang/">
+            <Link
+              className={classes.link}
+              target="_blank"
+              href="https://www.linkedin.com/in/kaiqiliang"
+            >
               <LinkedInIcon />
             </Link>
           </Tooltip>
           {'\u00A0'}
           <Tooltip title="GitHub" aria-label="GitHub">
-            <Link target="_blank" href="https://github.com/Kaiqi-Liang">
+            <Link
+              className={classes.link}
+              target="_blank"
+              href="https://github.com/Kaiqi-Liang"
+            >
               <GitHubIcon />
             </Link>
           </Tooltip>
