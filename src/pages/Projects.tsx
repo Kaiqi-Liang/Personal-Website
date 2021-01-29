@@ -101,7 +101,7 @@ export default () => {
           description="A productivity Google Chrome extension which removes distracting video suggestions on YouTube."
           src={youtube}
           github="https://github.com/Kaiqi-Liang/YouTube-Distraction-Disabler"
-          link="https://chrome.google.com/webstore/detail/youtube-distraction-disab/klhmhijgenkomhcobnbdnjkkefbghfab?hl=en-GB"
+          link="http://bit.ly/YoutubeDistractionDisabler"
           button="Chrome Store"
         />
         <CardItem
