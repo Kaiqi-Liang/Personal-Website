@@ -32,7 +32,7 @@ export default () => {
         </TextLoop>
       </Typography>
       <Link to="/about">
-        <Typography component="h3" variant="h5">Find out more...</Typography>
+        <Typography component="h3" variant="h5">Find out more ...</Typography>
       </Link>
     </Background>
   );

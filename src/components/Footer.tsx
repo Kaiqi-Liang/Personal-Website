@@ -37,7 +37,7 @@ const Copyright = () => (
     <Link color="inherit" href="#">
       Kaiqi Liang
     </Link>
-    {' 2020'}
+    {' 2021.'}
   </Typography>
 );
 
