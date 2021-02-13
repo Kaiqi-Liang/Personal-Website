@@ -64,6 +64,7 @@ const CardItem = ({ title, description, src, github, link, button }: Project) =>
             component={src.indexOf('mov') > 0 ? 'video' : 'img'}
             autoPlay
             src={src}
+            title={title}
           />
           <CardContent>
             <Typography gutterBottom variant="h5" component="h2">

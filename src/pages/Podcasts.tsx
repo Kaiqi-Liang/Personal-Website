@@ -182,6 +182,7 @@ export default () => {
                 <CardMedia
                   className={classes.cardMedia}
                   image={podcast.image}
+                  title={podcast.title}
                 />
                 <CardContent className={classes.cardContent}>
                   <Typography gutterBottom variant="h5" component="h2">
