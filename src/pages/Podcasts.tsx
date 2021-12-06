@@ -14,9 +14,11 @@ import {
 import lecturersImage from '../assets/images/lecturers.jpg';
 import thesisImage from '../assets/images/thesis.jpg';
 import appianImage from '../assets/images/appian.png';
+import internationalImage from '../assets/images/international.png';
 import lecturersAudio from '../assets/audio/lecturers.mp3';
 import thesisAudio from '../assets/audio/thesis.mp3';
 import appianAudio from '../assets/audio/appian.mp3';
+import internationalAudio from '../assets/audio/international.mp3';
 
 const useStyles = makeStyles((theme) => ({
   section: {
@@ -92,6 +94,16 @@ const podcasts: Podcast[] = [
     apple: 'https://podcasts.apple.com/au/podcast/echo/id1455157876?i=1000472257209',
     google: 'https://podcasts.google.com/feed/aHR0cHM6Ly9mZWVkLnBvZGJlYW4uY29tL2NzZXNvYy9mZWVkLnhtbA/episode/Y3Nlc29jLnBvZGJlYW4uY29tLzY1YmRiOGI0LTU0YTQtNTdhYi05NjkzLWJlMjVjZmM0MDVhNA?sa=X&ved=0CAUQkfYCahcKEwj4hsiI-JfuAhUAAAAAHQAAAAAQRQ',
   },
+  {
+    title: 'Stories from a Stranded International Student w/ Kaiqi Liang',
+    date: '10 JUNE 2021',
+    description: "Ever wondered why you’ve never seen CSESoc’s Arc Delegate in person 🤔?? Kaiqi is one of thousands of international students currently stranded in another country as COVID 🦠 has wrecked all plans of overseas travel ✈️🚫. Ryan and Angeni have an honest conversation with Kaiqi about current life as an international student.",
+    image: internationalImage,
+    audio: internationalAudio,
+    spotify: 'https://open.spotify.com/embed/episode/2L6em3vav1vKzZfWoQXBd7',
+    apple: 'https://podcasts.apple.com/au/podcast/echo/id1455157876?i=1000524805828',
+    google: 'https://podcasts.google.com/feed/aHR0cHM6Ly9mZWVkLnBvZGJlYW4uY29tL2NzZXNvYy9mZWVkLnhtbA/episode/Y3Nlc29jLnBvZGJlYW4uY29tL2YzZjMwZTJmLWRkMDMtMzkyNC1hMjAwLTk4ZjA3MWQ3OTQ2Nw?sa=X&ved=0CAUQkfYCahcKEwiw14_5vs70AhUAAAAAHQAAAAAQAQ',
+  },
 ];
 
 interface Props {
@@ -146,11 +158,11 @@ export default () => {
                 Echo is Computer Science Engineering Society (<Anchor link="http://csesoc.unsw.edu.au">CSESoc</Anchor>)'s own podcast where we talk about topics all over the place related to technology and university life.
               </Typography>
               <Typography variant="h5" align="center" color="textSecondary" paragraph>
-                I made the following episodes when I was a subcommittee member of the <Anchor link="https://media.csesoc.org.au">CSESoc Media Team</Anchor>.
+                I produced the following episodes when I was a subcommittee member of the <Anchor link="https://media.csesoc.org.au">CSESoc Media Team</Anchor> and when I was an executive for the society.
               </Typography>
               <div className={classes.buttons}>
                 <Typography variant="h5" align="center" color="textSecondary" paragraph>
-                  You can find other episodes on Echo here or wherever you find your podcasts.
+                  You can check out other episodes on Echo via any of the platforms below or wherever you find your podcasts.
                 </Typography>
                 <Grid container spacing={2} justify="center">
                   <Grid item>
